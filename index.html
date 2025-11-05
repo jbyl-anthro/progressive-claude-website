@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude for Progressive | Enterprise AI for Insurance Innovation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0077b3;
+            --light-blue: #8fd8f2;
+            --dark-blue: #005a8c;
+            --accent-blue: #00a3d9;
+            --white: #FFFFFF;
+            --light-gray: #f3f9fc;
+            --dark-gray: #2d2d2d;
+            --medium-gray: #707070;
+            --success-green: #7ee0ca;
+            --text-gray: #707070;
+            --accent-orange: #ffa452;
+            --accent-purple: #c973c9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 163, 224, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subheadline {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Strategic Pillars Section */
+        .pillars-section {
+            background: var(--light-gray);
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .pillar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pillar-description {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 5px;
+        }
+
+        .pillar-helps {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .pillar-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .pillar-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .real-impact {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .real-impact strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* Section Container */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        .section-gray {
+            background: var(--light-gray);
+        }
+
+        /* Three Column Layout */
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .column-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .column-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .column-card ul {
+            list-style: none;
+        }
+
+        .column-card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .column-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .callout-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Use Case Cards */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--light-blue);
+            border: 1px solid rgba(0,119,179,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+        }
+
+        .use-case-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card .challenge,
+        .use-case-card .solution,
+        .use-case-card .impact {
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-card .label {
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .impact-stat {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--success-green);
+        }
+
+        /* Agent Cards */
+        .agent-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--light-blue);
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .agent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .agent-title {
+            font-size: 1.75rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .status-badge {
+            background: var(--success-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .agent-oneliner {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .agent-section {
+            margin-bottom: 2rem;
+        }
+
+        .agent-section h4 {
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .business-impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 6px;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .impact-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            white-space: nowrap;
+        }
+
+        .impact-description {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+        }
+
+        .annual-value {
+            background: linear-gradient(135deg, var(--success-green) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .annual-value-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ROI Table */
+        .roi-table {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .roi-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .roi-table th {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1.25rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .roi-table td {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .roi-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .roi-table .total-row {
+            background: var(--light-gray);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .roi-table .highlight-row {
+            background: linear-gradient(135deg, rgba(0, 163, 224, 0.1) 0%, rgba(28, 91, 166, 0.1) 100%);
+            font-weight: 700;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child):before {
+            content: "";
+            position: absolute;
+            left: 90px;
+            top: 80px;
+            width: 2px;
+            height: calc(100% + 3rem);
+            background: var(--accent-blue);
+        }
+
+        .timeline-quarter {
+            min-width: 150px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .timeline-content h4 {
+            color: var(--dark-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+        }
+
+        .timeline-content ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .timeline-content ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 5rem 2rem;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .cta-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .cta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+        }
+
+        .cta-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-card ul {
+            text-align: left;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .cta-card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .cta-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .cta-card .btn {
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .cta-card .btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subheadline {
+                font-size: 1.2rem;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pillars-grid,
+            .three-column,
+            .use-cases-grid,
+            .cta-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .business-impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-item:before {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Department Grid */
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .department-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .department-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .department-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .department-card ul {
+            list-style: none;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .department-card ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        /* Security Badge */
+        .security-badge {
+            background: var(--success-green);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+
+        .security-badge h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .security-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .productivity-calc {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .strategic-impact {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .strategic-impact h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .strategic-impact ul {
+            list-style: none;
+        }
+
+        .strategic-impact ul li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .strategic-impact ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 1px solid rgba(0,119,179,0.1);
+        }
+
+        .metric-card .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--success-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Claude for Progressive</div>
+            <ul class="nav-links">
+                <li><a href="#pillars">Strategic Pillars</a></li>
+                <li><a href="#claude-code">Claude Code</a></li>
+                <li><a href="#custom-agents">Custom Agents</a></li>
+                <li><a href="#enterprise">Enterprise</a></li>
+                <li><a href="#roi">ROI</a></li>
+                <li><a href="#cta" class="cta-button">Schedule Executive Briefing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Claude AI Powers Progressive's Strategic Pillars</h1>
+        <p class="subheadline">Enterprise AI that transforms claims, underwriting, and customer experience while empowering your 58,000 employees</p>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="stat-number" data-count="37000000">0</span>
+                <div class="stat-label">Customers Served</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">82%</span>
+                <div class="stat-label">CAGR in AI-Powered Photo Estimates</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2.5x</span>
+                <div class="stat-label">Claims Productivity Increase</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Path to #1</span>
+                <div class="stat-label">AI-Powered Leadership in P&C Insurance</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strategic Pillars Section -->
+    <section id="pillars" class="pillars-section">
+        <h2 class="section-title">Progressive's Four Strategic Pillars</h2>
+
+        <div class="pillars-grid">
+            <!-- Pillar 1: People and Culture -->
+            <div class="pillar-card">
+                <span class="pillar-icon">👥</span>
+                <h3 class="pillar-title">People and Culture</h3>
+                <div class="pillar-description">
+                    "Ensuring that our people and culture collectively remain our most powerful source of competitive advantage."
+                </div>
+                <div class="pillar-helps">How Claude Helps:</div>
+                <ul>
+                    <li>Augments your 58,000 employees with AI assistance</li>
+                    <li>Empowers claims adjusters with intelligent damage assessment</li>
+                    <li>Enables agents with instant product knowledge across 50 states</li>
+                    <li>Accelerates developer productivity with Claude Code</li>
+                </ul>
+                <div class="real-impact">
+                    <strong>Real Impact:</strong>
+                    400+ years of Physical Damage team experience + Claude AI = unmatched claims excellence
+                </div>
+            </div>
+
+            <!-- Pillar 2: Broad Needs -->
+            <div class="pillar-card">
+                <span class="pillar-icon">🎯</span>
+                <h3 class="pillar-title">Broad Needs</h3>
+                <div class="pillar-description">
+                    "Meeting the broader needs of our customers throughout their lifetimes."
+                </div>
+                <div class="pillar-helps">How Claude Helps:</div>
+                <ul>
+                    <li>Intelligent auto + home bundling recommendations</li>
+                    <li>Multi-product underwriting across personal & commercial lines</li>
+                    <li>Telematics (Snapshot 5.0) enrollment optimization</li>
+                    <li>Complex coverage navigation for diverse customer needs</li>
+                </ul>
+                <div class="real-impact">
+                    <strong>Real Impact:</strong>
+                    Model 8.9 pricing in 24 states (46% of auto NPW) with Claude-assisted deployment acceleration
+                </div>
+            </div>
+
+            <!-- Pillar 3: Leading Brand -->
+            <div class="pillar-card">
+                <span class="pillar-icon">💡</span>
+                <h3 class="pillar-title">Leading Brand</h3>
+                <div class="pillar-description">
+                    "Maintaining a leading brand recognized for innovative offerings and supported by experiences that instill confidence."
+                </div>
+                <div class="pillar-helps">How Claude Helps:</div>
+                <ul>
+                    <li>Next-generation conversational AI beyond current Flo capabilities</li>
+                    <li>Proactive customer retention and engagement at scale</li>
+                    <li>Real-time digital claims experiences with natural language</li>
+                    <li>24/7 multilingual customer support</li>
+                </ul>
+                <div class="real-impact">
+                    <strong>Real Impact:</strong>
+                    Support 82% CAGR photo estimate growth with AI-enhanced accuracy and customer satisfaction
+                </div>
+            </div>
+
+            <!-- Pillar 4: Competitive Prices -->
+            <div class="pillar-card">
+                <span class="pillar-icon">📊</span>
+                <h3 class="pillar-title">Competitive Prices</h3>
+                <div class="pillar-description">
+                    "Offering competitive prices driven by industry-leading segmentation, claims accuracy, and operational efficiency."
+                </div>
+                <div class="pillar-helps">How Claude Helps:</div>
+                <ul>
+                    <li>Shift the claims accuracy/LAE cost curve downward (not trade-offs)</li>
+                    <li>Accelerate underwriting decisions while improving precision</li>
+                    <li>Optimize geographic risk management (115K Florida non-renewals)</li>
+                    <li>Support advanced segmentation model deployment</li>
+                </ul>
+                <div class="real-impact">
+                    <strong>Real Impact:</strong>
+                    Target combined ratio improvements through intelligent automation + human expertise
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Claude for Progressive -->
+    <section class="section section-white">
+        <h2 class="section-title">Why Progressive + Claude: Responsible AI for Insurance Innovation</h2>
+
+        <div class="three-column">
+            <div class="column-card">
+                <h3>Built for Insurance Complexity</h3>
+                <ul>
+                    <li>Understands P&C insurance terminology, regulations, and workflows</li>
+                    <li>Processes entire policy histories, claims files, and underwriting guidelines</li>
+                    <li>Handles 50-state regulatory compliance requirements</li>
+                    <li>Maintains context across complex multi-line discussions (auto, home, commercial)</li>
+                </ul>
+            </div>
+
+            <div class="column-card">
+                <h3>Enterprise-Grade Security & Governance</h3>
+                <ul>
+                    <li>SOC 2 Type II certified, HIPAA compliant</li>
+                    <li>Zero data retention - your data never trains our models</li>
+                    <li>Private deployment options for sensitive workloads</li>
+                    <li>Role-based access control and comprehensive audit logs</li>
+                    <li>Meets stringent insurance industry security standards</li>
+                </ul>
+            </div>
+
+            <div class="column-card">
+                <h3>Augmentation Philosophy</h3>
+                <ul>
+                    <li>Designed to enhance human expertise, not replace it</li>
+                    <li>Your adjusters, agents, and underwriters remain in control</li>
+                    <li>AI handles repetitive tasks, humans handle judgment calls</li>
+                    <li>Aligns with Progressive's "people and culture" competitive advantage</li>
+                    <li>Constitutional AI approach ensures responsible, controlled outputs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout-box">
+            "Progressive pioneered drive-in claims offices, online quoting, and usage-based insurance. Claude continues that innovation legacy with enterprise AI designed specifically for the complexity, compliance requirements, and scale of insurance operations."
+        </div>
+    </section>
+
+    <!-- Claude Code Section -->
+    <section id="claude-code" class="section section-gray">
+        <h2 class="section-title">Claude Code: Accelerate Your Technology Transformation</h2>
+
+        <p class="intro-text">
+            Progressive's competitive advantage relies on sophisticated technology—advanced segmentation models, machine vision claims systems, real-time pricing engines, and seamless omnichannel experiences. Claude Code empowers your 1,000+ developers to build, modernize, and scale these mission-critical systems faster while maintaining Progressive's quality standards.
+        </p>
+
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <h4>Legacy Modernization</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Decades of insurance-specific code requiring modernization</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Refactor legacy rating engines to microservices while preserving complex business logic</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: 50% faster model deployment (Model 8.9 → remaining 26 states)
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <h4>Advanced Segmentation Implementation</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Deploying sophisticated pricing models across 50 states with unique regulations</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Automated code generation for state-specific rating variables, comprehensive testing</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: 12-18 months → 6-9 months per state deployment cycle
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <h4>API Development & Integration</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Connecting Snapshot telematics, photo estimating, pricing, aggregator partners</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Production-ready APIs with testing, documentation, error handling</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: 40% reduction in integration development time
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <h4>Machine Vision Enhancement</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Scaling photo estimating beyond current 2.5x productivity gains</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Build data pipelines, model training workflows, production deployment systems</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: Continue 82% CAGR with expanded damage types and vehicle coverage
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <h4>Comprehensive Testing</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Validating accuracy across 50 states × 9 coverage types × 5 business targets</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Automated test generation covering edge cases and regulatory requirements</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: 60% increase in test coverage, faster release cycles
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <h4>Documentation Automation</h4>
+                <div class="challenge">
+                    <div class="label">Challenge</div>
+                    <p>Maintaining technical documentation as systems evolve rapidly</p>
+                </div>
+                <div class="solution">
+                    <div class="label">Solution</div>
+                    <p>Auto-generated API specs, technical guides, onboarding materials</p>
+                </div>
+                <div class="impact-stat">
+                    Impact: 50% reduction in developer onboarding time
+                </div>
+            </div>
+        </div>
+
+        <div class="productivity-calc">
+            <strong>Developer Productivity ROI:</strong><br>
+            1,000 Progressive developers × 20 hours saved/month × $150/hour = <strong>$3M monthly</strong> = <strong>$36M annual value</strong>
+        </div>
+    </section>
+
+    <!-- Custom Agents Section -->
+    <section id="custom-agents" class="section section-white">
+        <h2 class="section-title">Claude-Powered Custom Agents: Autonomous Intelligence for Insurance Operations</h2>
+
+        <p class="intro-text">
+            Progressive's strategic initiatives require AI that understands insurance nuance, regulatory complexity, and customer needs. Claude custom agents operate autonomously within defined parameters, making intelligent decisions while keeping humans in control for critical judgments.
+        </p>
+
+        <!-- Agent 1 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Claims Processing Intelligence</h3>
+                <span class="status-badge">Production Ready | Complements Photo Estimating</span>
+            </div>
+            <p class="agent-oneliner">AI-powered damage assessment and estimate generation at scale</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• 82% CAGR in photo estimates creating massive volume</li>
+                    <li style="margin-bottom: 0.75rem;">• Balance claims accuracy with LAE efficiency (Progressive's core priority)</li>
+                    <li style="margin-bottom: 0.75rem;">• Customer expectations for rapid claim resolution</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent analyzes vehicle damage photos, generates natural language damage descriptions, creates preliminary repair estimates with parts lists, automatically routes complex claims to specialized adjusters with pre-populated analysis, and learns from adjuster corrections to continuously improve accuracy.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">35%</span>
+                    <span class="impact-description">Reduction in average claim processing time</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">95%+</span>
+                    <span class="impact-description">Accuracy rates maintained</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">3x</span>
+                    <span class="impact-description">Photo estimate volume handled</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">+45%</span>
+                    <span class="impact-description">Adjuster productivity on complex claims</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$180M</div>
+                Annual Value in claims organization efficiency
+            </div>
+        </div>
+
+        <!-- Agent 2 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Underwriting & Geographic Risk Management</h3>
+                <span class="status-badge">High Impact | Addresses Florida Strategy</span>
+            </div>
+            <p class="agent-oneliner">Intelligent eligibility guidance for complex multi-state operations</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• 115,000 Florida policy non-renewals requiring careful customer communication</li>
+                    <li style="margin-bottom: 0.75rem;">• Complex bundling requirements (auto + home "Robinson households")</li>
+                    <li style="margin-bottom: 0.75rem;">• 50-state regulatory compliance with varying underwriting rules</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent provides real-time eligibility determination, explains underwriting restrictions in plain language, recommends optimal bundles to meet requirements, navigates state-specific regulations, and suggests alternative carriers when Progressive can't offer coverage.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">+7%</span>
+                    <span class="impact-description">Growth in favorable states</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">+8%</span>
+                    <span class="impact-description">Quote-to-bind conversion improvement</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">-60%</span>
+                    <span class="impact-description">Customer friction reduction</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">Instant</span>
+                    <span class="impact-description">Product knowledge for agents</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$95M</div>
+                Annual Value in improved conversion and retention
+            </div>
+        </div>
+
+        <!-- Agent 3 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Customer Retention & Lifetime Value</h3>
+                <span class="status-badge">Addresses Critical Priority | Policy Life Expectancy</span>
+            </div>
+            <p class="agent-oneliner">Proactive engagement to prevent shopping and increase retention</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• Declining trailing 3/12-month policy life expectancy in direct auto</li>
+                    <li style="margin-bottom: 0.75rem;">• Increased consumer shopping behavior in competitive market</li>
+                    <li style="margin-bottom: 0.75rem;">• Need to grow Robinson (bundled) households as retention anchor</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent proactively contacts customers 60/30 days before renewal with personalized coverage reviews, explains Snapshot usage-based discount opportunities, answers policy questions 24/7, identifies coverage gaps, and provides retention offers tailored to customer risk profile.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">8-12%</span>
+                    <span class="impact-description">Improvement in retention rates</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">+15%</span>
+                    <span class="impact-description">Robinson household formation increase</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">+18%</span>
+                    <span class="impact-description">Customer lifetime value improvement</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">24/7</span>
+                    <span class="impact-description">Always-available customer support</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$140M</div>
+                Annual Value in reduced churn and acquisition costs
+            </div>
+        </div>
+
+        <!-- Agent 4 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Agent Productivity & Hybrid Channel Optimization</h3>
+                <span class="status-badge">Critical | Addresses Agency Channel Gap</span>
+            </div>
+            <p class="agent-oneliner">AI co-pilot for 30,000+ independent agents</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• Agency Snapshot adoption -1% (vs. +9% direct channel)</li>
+                    <li style="margin-bottom: 0.75rem;">• Property underwriting restrictions impacting agency Robinson conversion</li>
+                    <li style="margin-bottom: 0.75rem;">• Complex product knowledge required (Model 8.9, 9 coverage types, 50 states)</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent serves as intelligent assistant for independent agents, providing instant answers to product questions, optimal bundle recommendations, competitive positioning insights, real-time eligibility checks, and Snapshot enrollment guidance.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">+15%</span>
+                    <span class="impact-description">Agency new policy conversion increase</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">20 → 8 min</span>
+                    <span class="impact-description">Average quote time reduction</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">Match Direct</span>
+                    <span class="impact-description">Agency Snapshot adoption improvement</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">30,000+</span>
+                    <span class="impact-description">Agents empowered</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$75M</div>
+                Annual Value in agency channel productivity
+            </div>
+        </div>
+
+        <!-- Agent 5 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Commercial Auto Underwriting</h3>
+                <span class="status-badge">Growth Accelerator | Model 8.3 Expansion</span>
+            </div>
+            <p class="agent-oneliner">Handle commercial auto complexity at scale</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• Commercial auto complexity: Business auto, contractor, for-hire trucking, TNC</li>
+                    <li style="margin-bottom: 0.75rem;">• Model 8.3 deployed in only 10 states (43% of CL auto NPW)</li>
+                    <li style="margin-bottom: 0.75rem;">• Balance 5% NPW growth target with 87.5 combined ratio</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent processes complex commercial auto applications, incorporates external data sources for risk assessment, evaluates across business market targets, generates accurate quotes rapidly, and explains coverage requirements for commercial customers.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">40 states</span>
+                    <span class="impact-description">Model 8.3 deployment acceleration</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">+20%</span>
+                    <span class="impact-description">Commercial auto quote volume improvement</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">5%</span>
+                    <span class="impact-description">Support CL NPW growth target</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">87.5</span>
+                    <span class="impact-description">Maintain target combined ratio</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$45M</div>
+                Annual Value in commercial lines growth
+            </div>
+        </div>
+
+        <!-- Agent 6 -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <h3 class="agent-title">Regulatory Compliance & Multi-State Operations</h3>
+                <span class="status-badge">Essential | 50-State Complexity</span>
+            </div>
+            <p class="agent-oneliner">Ensure compliance across all regulatory jurisdictions</p>
+
+            <div class="agent-section">
+                <h4>The Challenge</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.75rem;">• Progressive operates in all 50 states + D.C. with thousands of requirements</li>
+                    <li style="margin-bottom: 0.75rem;">• Frequent rate filing updates (4x/year in commercial auto alone)</li>
+                    <li style="margin-bottom: 0.75rem;">• Property Model 5.0+ deployment across 35 states with varying regulations</li>
+                </ul>
+            </div>
+
+            <div class="agent-section">
+                <h4>The Solution</h4>
+                <p>Claude agent monitors regulatory changes across jurisdictions, validates rate filings for state compliance, ensures product designs meet regulations, automates documentation for insurance departments, and flags compliance risks before implementation.</p>
+            </div>
+
+            <div class="business-impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">30%</span>
+                    <span class="impact-description">Reduction in regulatory compliance costs</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">Faster</span>
+                    <span class="impact-description">Rate implementation from filing to market</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">Zero</span>
+                    <span class="impact-description">Target compliance violations</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">51</span>
+                    <span class="impact-description">Jurisdictions monitored continuously</span>
+                </div>
+            </div>
+
+            <div class="annual-value">
+                <div class="annual-value-number">$55M</div>
+                Annual Value in compliance efficiency
+            </div>
+        </div>
+
+        <div class="productivity-calc">
+            <strong>Total Custom Agent Value:</strong><br>
+            $180M + $95M + $140M + $75M + $45M + $55M = <strong>$590M annually</strong>
+        </div>
+    </section>
+
+    <!-- Claude Enterprise Section -->
+    <section id="enterprise" class="section section-gray">
+        <h2 class="section-title">Claude Enterprise: AI for Every Progressive Employee</h2>
+
+        <p class="intro-text">
+            Beyond specialized agents, Claude Enterprise provides your entire 58,000-person workforce with secure, private AI assistance for daily productivity—from claims adjusters to executives.
+        </p>
+
+        <div class="department-grid">
+            <div class="department-card">
+                <div class="department-icon">🔍</div>
+                <h4>Claims (18,000 employees)</h4>
+                <ul>
+                    <li>Analyze liability scenarios</li>
+                    <li>Draft customer communications</li>
+                    <li>Research precedent cases</li>
+                    <li>Prepare settlement docs</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📋</div>
+                <h4>Underwriting</h4>
+                <ul>
+                    <li>Research market conditions</li>
+                    <li>Analyze competitive positioning</li>
+                    <li>Prepare risk assessments</li>
+                    <li>Create state filings</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💼</div>
+                <h4>Sales & Agency Support</h4>
+                <ul>
+                    <li>Prepare presentations</li>
+                    <li>Analyze competitive quotes</li>
+                    <li>Draft email responses</li>
+                    <li>Generate training materials</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📢</div>
+                <h4>Marketing</h4>
+                <ul>
+                    <li>Analyze campaign performance</li>
+                    <li>Draft creative briefs</li>
+                    <li>Generate content variations</li>
+                    <li>Optimize messaging</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💰</div>
+                <h4>Finance & Analytics</h4>
+                <ul>
+                    <li>Build financial models</li>
+                    <li>Analyze combined ratio drivers</li>
+                    <li>Prepare investor materials</li>
+                    <li>Create dashboards</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">⚖️</div>
+                <h4>Legal & Compliance</h4>
+                <ul>
+                    <li>Review contracts</li>
+                    <li>Research regulations</li>
+                    <li>Draft policy documents</li>
+                    <li>Analyze legal risks</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💻</div>
+                <h4>IT & Development</h4>
+                <ul>
+                    <li>Debug code</li>
+                    <li>Review architectures</li>
+                    <li>Generate documentation</li>
+                    <li>Plan migrations</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📊</div>
+                <h4>Executive Leadership</h4>
+                <ul>
+                    <li>Strategic analysis</li>
+                    <li>Competitive intelligence</li>
+                    <li>Board presentations</li>
+                    <li>Investment decisions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-badge">
+            <h3>Enterprise Security Badge</h3>
+            <div class="security-items">
+                <div class="security-item">✓ SOC 2 Type II Certified</div>
+                <div class="security-item">✓ Zero Data Retention</div>
+                <div class="security-item">✓ HIPAA Compliant</div>
+                <div class="security-item">✓ Private Deployment Options</div>
+                <div class="security-item">✓ Role-Based Access Control</div>
+                <div class="security-item">✓ Comprehensive Audit Logs</div>
+            </div>
+        </div>
+
+        <div class="productivity-calc">
+            <strong>Enterprise Productivity Calculator:</strong><br>
+            58,000 employees × 3 hours saved/week × 50 weeks × $75/hour = <strong>$652M annual productivity value</strong>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section id="roi" class="section section-white">
+        <h2 class="section-title">Progressive + Claude: Measurable Business Impact</h2>
+
+        <div class="roi-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Initiative</th>
+                        <th>Annual Value</th>
+                        <th>Key Metrics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Claims Processing Agents</td>
+                        <td><strong>$180M</strong></td>
+                        <td>LAE reduction, throughput increase</td>
+                    </tr>
+                    <tr>
+                        <td>Underwriting & Risk Management</td>
+                        <td><strong>$95M</strong></td>
+                        <td>Conversion improvement, Florida transition</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Retention</td>
+                        <td><strong>$140M</strong></td>
+                        <td>Policy life expectancy, lifetime value</td>
+                    </tr>
+                    <tr>
+                        <td>Agent Productivity</td>
+                        <td><strong>$75M</strong></td>
+                        <td>Quote time, channel optimization</td>
+                    </tr>
+                    <tr>
+                        <td>Commercial Auto Growth</td>
+                        <td><strong>$45M</strong></td>
+                        <td>Model 8.3 expansion, quote volume</td>
+                    </tr>
+                    <tr>
+                        <td>Regulatory Compliance</td>
+                        <td><strong>$55M</strong></td>
+                        <td>Filing efficiency, risk mitigation</td>
+                    </tr>
+                    <tr>
+                        <td>Claude Code Developers</td>
+                        <td><strong>$36M</strong></td>
+                        <td>1,000 developers, 20 hrs/month saved</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise Productivity</td>
+                        <td><strong>$120M</strong></td>
+                        <td>58,000 employees, 3 hrs/week saved</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL YEAR 1 IMPACT</strong></td>
+                        <td><strong>$746M</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Investment</td>
+                        <td>$30M</td>
+                        <td>Software, implementation, training</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>NET YEAR 1 BENEFIT</strong></td>
+                        <td><strong>$716M</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ROI</strong></td>
+                        <td><strong>2,387%</strong></td>
+                        <td>24x return on investment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payback Period</strong></td>
+                        <td><strong>15 days</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout-box" style="margin-top: 3rem;">
+            <strong style="font-size: 1.5rem; display: block; margin-bottom: 1rem;">3-Year Cumulative Impact: $2.4B</strong>
+        </div>
+
+        <div class="strategic-impact">
+            <h3>Strategic Impact Beyond Financial: Your Path to #1</h3>
+            <ul>
+                <li><strong>Operational Excellence at Scale:</strong> Process 3x more claims, quotes, and policies without proportional cost increases—outpacing competitors in efficiency</li>
+                <li><strong>Speed to Market Advantage:</strong> Deploy pricing models and products 50% faster than industry average, capturing market share in high-growth segments</li>
+                <li><strong>Customer Experience Leadership:</strong> 24/7 AI-powered service that exceeds State Farm and Geico capabilities, driving NPS gains and retention superiority</li>
+                <li><strong>Talent Magnet:</strong> Attract top insurance and technology talent by offering the industry's most advanced AI-powered workplace</li>
+                <li><strong>Unassailable Technology Moat:</strong> Build AI capabilities competitors can't replicate, cementing long-term #1 market position</li>
+            </ul>
+        </div>
+
+        <div class="callout-box" style="margin-top: 2rem;">
+            <strong style="font-size: 1.3rem; display: block; margin-bottom: 1rem;">The #1 Position Requires #1 Technology</strong>
+            Progressive's innovation legacy—from drive-in claims to Snapshot telematics—has always been about doing things competitors couldn't. Claude AI continues that tradition, providing the operational excellence, customer experience, and speed that will propel Progressive from #3 to #1 in the P&C insurance market.
+        </div>
+    </section>
+
+    <!-- Implementation Roadmap -->
+    <section class="section section-gray">
+        <h2 class="section-title">Your Path to AI Transformation</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-quarter">Phase 1:<br>Q4 2025 - Q1 2026</div>
+                <div class="timeline-content">
+                    <h4>Foundation (3 months)</h4>
+                    <ul>
+                        <li>Executive alignment workshops</li>
+                        <li>Pilot: Claims processing agent (2 states, 500 adjusters)</li>
+                        <li>Pilot: Claude Code (50 senior developers)</li>
+                        <li>Pilot: Claude Enterprise (500 knowledge workers)</li>
+                        <li>Core systems integration (claims, policy, CRM)</li>
+                        <li>Success metrics dashboard deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-quarter">Phase 2:<br>Q2 2026</div>
+                <div class="timeline-content">
+                    <h4>Expansion (3 months)</h4>
+                    <ul>
+                        <li>Claims agent: 15 states, 5,000 adjusters</li>
+                        <li>Agent productivity agent: 5,000 independent agents</li>
+                        <li>Claude Code: 500 developers</li>
+                        <li>Claude Enterprise: 10,000 employees</li>
+                        <li>Custom agent development: Underwriting, retention</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-quarter">Phase 3:<br>Q3 2026</div>
+                <div class="timeline-content">
+                    <h4>Enterprise Scale (3 months)</h4>
+                    <ul>
+                        <li>Claims agent: National deployment, all adjusters</li>
+                        <li>Commercial auto underwriting agent: 10 states</li>
+                        <li>Compliance & regulatory agent: All 50 states</li>
+                        <li>Claude Code: All developers</li>
+                        <li>Claude Enterprise: All 58,000 employees</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-quarter">Phase 4:<br>Q4 2026</div>
+                <div class="timeline-content">
+                    <h4>Optimization & Innovation (3 months)</h4>
+                    <ul>
+                        <li>Continuous improvement based on KPIs</li>
+                        <li>Advanced agent capabilities (predictive analytics)</li>
+                        <li>Deep integration with Progressive systems</li>
+                        <li>ROI measurement and executive reporting</li>
+                        <li>2027 roadmap development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: var(--white); padding: 3rem; border-radius: 8px; margin-top: 3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid rgba(0,119,179,0.1);">
+            <h3 style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">Success Metrics Dashboard</h3>
+            <div class="metrics-dashboard">
+                <div class="metric-card">
+                    <div class="metric-value">-2.5 pts</div>
+                    <div class="metric-label">Combined Ratio</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">-15%</div>
+                    <div class="metric-label">Claims LAE</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+10%</div>
+                    <div class="metric-label">Quote-to-Bind Conversion</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+8%</div>
+                    <div class="metric-label">Policy Life Expectancy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+40%</div>
+                    <div class="metric-label">Agent Productivity</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+50%</div>
+                    <div class="metric-label">Developer Velocity</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+15 pts</div>
+                    <div class="metric-label">NPS Score</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">-30%</div>
+                    <div class="metric-label">Time-to-Market</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive CTA -->
+    <section id="cta" class="cta-section">
+        <h2 class="section-title" style="color: var(--white); text-align: center;">Transform Progressive with Claude AI</h2>
+
+        <div class="cta-grid">
+            <div class="cta-card">
+                <div class="cta-icon">📅</div>
+                <h3>Schedule Executive Briefing</h3>
+                <ul>
+                    <li>2-hour strategy session with Anthropic leadership</li>
+                    <li>Progressive-specific use case deep dive</li>
+                    <li>Custom ROI modeling for your operations</li>
+                    <li>Implementation roadmap and timeline</li>
+                    <li>Q&A with Claude product team</li>
+                </ul>
+                <a href="#" class="btn">Schedule Briefing</a>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-icon">💻</div>
+                <h3>Request Technical Demo</h3>
+                <ul>
+                    <li>Live custom agent demonstrations</li>
+                    <li>Claude Code developer walkthrough</li>
+                    <li>Security & compliance architecture review</li>
+                    <li>Integration discussion with your systems</li>
+                    <li>Technical Q&A with engineering team</li>
+                </ul>
+                <a href="#" class="btn">Request Demo</a>
+            </div>
+
+            <div class="cta-card">
+                <div class="cta-icon">📄</div>
+                <h3>Download Executive Brief</h3>
+                <ul>
+                    <li>15-page executive summary (PDF)</li>
+                    <li>Technical architecture overview</li>
+                    <li>Security and compliance documentation</li>
+                    <li>Insurance industry case studies</li>
+                    <li>ROI calculator spreadsheet</li>
+                </ul>
+                <a href="#" class="btn">Download Resources</a>
+            </div>
+        </div>
+
+        <div style="background: var(--white); padding: 2rem; border-radius: 8px; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid rgba(0,119,179,0.1);">
+            <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Prefer to speak directly?</h3>
+            <p style="color: var(--dark-gray); font-size: 1.1rem;">
+                <strong>Email:</strong> insurance@anthropic.com<br>
+                <strong>Phone:</strong> Contact our insurance industry team<br>
+                <strong>LinkedIn:</strong> Anthropic
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Claude for Progressive</h4>
+                <p>Enterprise AI purpose-built for insurance innovation and operational excellence.</p>
+                <p style="margin-top: 1rem; font-weight: 600;">Progressive + Anthropic Partnership</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#custom-agents">Claims Processing</a></li>
+                    <li><a href="#custom-agents">Underwriting & Risk</a></li>
+                    <li><a href="#custom-agents">Agent Productivity</a></li>
+                    <li><a href="#custom-agents">Customer Retention</a></li>
+                    <li><a href="#claude-code">Claude Code</a></li>
+                    <li><a href="#enterprise">Claude Enterprise</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Executive Brief (PDF)</a></li>
+                    <li><a href="#">Technical Documentation</a></li>
+                    <li><a href="#">Security Whitepaper</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Anthropic</a></li>
+                    <li><a href="#">Responsible AI</a></li>
+                    <li><a href="#">Security & Compliance</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Anthropic PBC. All rights reserved.</p>
+            <p>Claude and Anthropic are trademarks of Anthropic PBC. Progressive is a registered trademark of Progressive Corporation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animated counters
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString() + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 20);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate stat numbers
+                    const statNumber = entry.target.querySelector('.stat-number[data-count]');
+                    if (statNumber && !statNumber.classList.contains('animated')) {
+                        const target = parseInt(statNumber.getAttribute('data-count'));
+                        animateCounter(statNumber, target);
+                        statNumber.classList.add('animated');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 3px 10px rgba(0,0,0,0.12)';
+            } else {
+                nav.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Add fade-in animations to sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section, .pillars-section, .hero');
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
