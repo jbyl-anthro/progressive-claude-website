@@ -529,25 +529,17 @@
         .timeline-item {
             display: flex;
             gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:not(:last-child):before {
-            content: "";
-            position: absolute;
-            left: 90px;
-            top: 80px;
-            width: 2px;
-            height: calc(100% + 3rem);
-            background: var(--accent-blue);
+            margin-bottom: 2rem;
+            align-items: flex-start;
         }
 
         .timeline-quarter {
-            min-width: 150px;
+            min-width: 180px;
+            max-width: 180px;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-blue);
+            flex-shrink: 0;
         }
 
         .timeline-content {
@@ -733,7 +725,8 @@
             .three-column,
             .use-cases-grid,
             .cta-grid,
-            .footer-content {
+            .footer-content,
+            .videos-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -747,10 +740,6 @@
 
             .timeline-item {
                 flex-direction: column;
-            }
-
-            .timeline-item:before {
-                display: none;
             }
         }
 
@@ -847,6 +836,119 @@
             margin-right: auto;
         }
 
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,119,179,0.2);
+        }
+
+        .video-card-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-card-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-card-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover .video-play-button {
+            background: var(--white);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-title {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        .video-link-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .productivity-calc {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
             color: var(--white);
@@ -928,10 +1030,8 @@
             <ul class="nav-links">
                 <li><a href="#pillars">Strategic Pillars</a></li>
                 <li><a href="#claude-code">Claude Code</a></li>
-                <li><a href="#custom-agents">Custom Agents</a></li>
                 <li><a href="#enterprise">Enterprise</a></li>
-                <li><a href="#roi">ROI</a></li>
-                <li><a href="#cta" class="cta-button">Schedule Executive Briefing</a></li>
+                <li><a href="#custom-agents">Custom Agents</a></li>
             </ul>
         </div>
     </nav>
@@ -939,7 +1039,7 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>Claude AI Powers Progressive's Strategic Pillars</h1>
-        <p class="subheadline">Enterprise AI that transforms claims, underwriting, and customer experience while empowering your 58,000 employees</p>
+        <p class="subheadline">Enterprise AI that transforms claims, underwriting, and customer experience while empowering your 70,000 employees</p>
 
         <div class="stats-row">
             <div class="stat-item">
@@ -975,7 +1075,7 @@
                 </div>
                 <div class="pillar-helps">How Claude Helps:</div>
                 <ul>
-                    <li>Augments your 58,000 employees with AI assistance</li>
+                    <li>Augments your 70,000 employees with AI assistance</li>
                     <li>Empowers claims adjusters with intelligent damage assessment</li>
                     <li>Enables agents with instant product knowledge across 50 states</li>
                     <li>Accelerates developer productivity with Claude Code</li>
@@ -1099,6 +1199,23 @@
             Progressive's competitive advantage relies on sophisticated technology—advanced segmentation models, machine vision claims systems, real-time pricing engines, and seamless omnichannel experiences. Claude Code empowers your 1,000+ developers to build, modernize, and scale these mission-critical systems faster while maintaining Progressive's quality standards.
         </p>
 
+        <div class="videos-grid">
+            <a href="https://www.youtube.com/watch?v=iF9iV4xponk" target="_blank" rel="noopener noreferrer" class="video-card">
+                <div class="video-card-container">
+                    <img src="https://img.youtube.com/vi/iF9iV4xponk/maxresdefault.jpg" alt="Claude Code Demo" class="video-card-thumbnail">
+                    <div class="video-play-button">▶</div>
+                </div>
+                <div class="video-title">Claude Code: AI-Powered Development</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=aZLr962R6Ag" target="_blank" rel="noopener noreferrer" class="video-card">
+                <div class="video-card-container">
+                    <img src="https://img.youtube.com/vi/aZLr962R6Ag/maxresdefault.jpg" alt="Model Context Protocol (MCP)" class="video-card-thumbnail">
+                    <div class="video-play-button">▶</div>
+                </div>
+                <div class="video-title">Model Context Protocol (MCP)</div>
+            </a>
+        </div>
+
         <div class="use-cases-grid">
             <div class="use-case-card">
                 <h4>Legacy Modernization</h4>
@@ -1197,13 +1314,137 @@
         </div>
     </section>
 
+    <!-- Claude Enterprise Section -->
+    <section id="enterprise" class="section section-white">
+        <h2 class="section-title">Claude Enterprise: AI for Every Progressive Employee</h2>
+
+        <p class="intro-text">
+            Beyond specialized agents, Claude Enterprise provides your entire 70,000-person workforce with secure, private AI assistance for daily productivity—from claims adjusters to executives.
+        </p>
+
+        <div class="department-grid">
+            <div class="department-card">
+                <div class="department-icon">🔍</div>
+                <h4>Claims (18,000 employees)</h4>
+                <ul>
+                    <li>Analyze liability scenarios</li>
+                    <li>Draft customer communications</li>
+                    <li>Research precedent cases</li>
+                    <li>Prepare settlement docs</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📋</div>
+                <h4>Underwriting</h4>
+                <ul>
+                    <li>Research market conditions</li>
+                    <li>Analyze competitive positioning</li>
+                    <li>Prepare risk assessments</li>
+                    <li>Create state filings</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💼</div>
+                <h4>Sales & Agency Support</h4>
+                <ul>
+                    <li>Prepare presentations</li>
+                    <li>Analyze competitive quotes</li>
+                    <li>Draft email responses</li>
+                    <li>Generate training materials</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📢</div>
+                <h4>Marketing</h4>
+                <ul>
+                    <li>Analyze campaign performance</li>
+                    <li>Draft creative briefs</li>
+                    <li>Generate content variations</li>
+                    <li>Optimize messaging</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💰</div>
+                <h4>Finance & Analytics</h4>
+                <ul>
+                    <li>Build financial models</li>
+                    <li>Analyze combined ratio drivers</li>
+                    <li>Prepare investor materials</li>
+                    <li>Create dashboards</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">⚖️</div>
+                <h4>Legal & Compliance</h4>
+                <ul>
+                    <li>Review contracts</li>
+                    <li>Research regulations</li>
+                    <li>Draft policy documents</li>
+                    <li>Analyze legal risks</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">💻</div>
+                <h4>IT & Development</h4>
+                <ul>
+                    <li>Debug code</li>
+                    <li>Review architectures</li>
+                    <li>Generate documentation</li>
+                    <li>Plan migrations</li>
+                </ul>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">📊</div>
+                <h4>Executive Leadership</h4>
+                <ul>
+                    <li>Strategic analysis</li>
+                    <li>Competitive intelligence</li>
+                    <li>Board presentations</li>
+                    <li>Investment decisions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="security-badge">
+            <h3>Enterprise Security Badge</h3>
+            <div class="security-items">
+                <div class="security-item">✓ SOC 2 Type II Certified</div>
+                <div class="security-item">✓ Zero Data Retention</div>
+                <div class="security-item">✓ HIPAA Compliant</div>
+                <div class="security-item">✓ Private Deployment Options</div>
+                <div class="security-item">✓ Role-Based Access Control</div>
+                <div class="security-item">✓ Comprehensive Audit Logs</div>
+            </div>
+        </div>
+
+        <div class="productivity-calc">
+            <strong>Enterprise Productivity Calculator:</strong><br>
+            70,000 employees × 3 hours saved/week × 50 weeks × $75/hour = <strong>$787.5M annual productivity value</strong>
+        </div>
+    </section>
+
     <!-- Custom Agents Section -->
-    <section id="custom-agents" class="section section-white">
+    <section id="custom-agents" class="section section-gray">
         <h2 class="section-title">Claude-Powered Custom Agents: Autonomous Intelligence for Insurance Operations</h2>
 
         <p class="intro-text">
             Progressive's strategic initiatives require AI that understands insurance nuance, regulatory complexity, and customer needs. Claude custom agents operate autonomously within defined parameters, making intelligent decisions while keeping humans in control for critical judgments.
         </p>
+
+        <a href="https://www.youtube.com/watch?v=uhJJgc-0iTQ" target="_blank" rel="noopener noreferrer" class="video-card" style="max-width: 900px; margin: 3rem auto; display: block;">
+            <div class="video-card-container">
+                <img src="https://img.youtube.com/vi/uhJJgc-0iTQ/maxresdefault.jpg" alt="Claude Custom Agents Demo" class="video-card-thumbnail">
+                <div class="video-play-button">▶</div>
+            </div>
+            <div class="video-title">Claude Custom Agents: Autonomous Intelligence</div>
+        </a>
 
         <!-- Agent 1 -->
         <div class="agent-card">
@@ -1352,211 +1593,6 @@
         </div>
     </section>
 
-    <!-- Claude Enterprise Section -->
-    <section id="enterprise" class="section section-gray">
-        <h2 class="section-title">Claude Enterprise: AI for Every Progressive Employee</h2>
-
-        <p class="intro-text">
-            Beyond specialized agents, Claude Enterprise provides your entire 58,000-person workforce with secure, private AI assistance for daily productivity—from claims adjusters to executives.
-        </p>
-
-        <div class="department-grid">
-            <div class="department-card">
-                <div class="department-icon">🔍</div>
-                <h4>Claims (18,000 employees)</h4>
-                <ul>
-                    <li>Analyze liability scenarios</li>
-                    <li>Draft customer communications</li>
-                    <li>Research precedent cases</li>
-                    <li>Prepare settlement docs</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📋</div>
-                <h4>Underwriting</h4>
-                <ul>
-                    <li>Research market conditions</li>
-                    <li>Analyze competitive positioning</li>
-                    <li>Prepare risk assessments</li>
-                    <li>Create state filings</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💼</div>
-                <h4>Sales & Agency Support</h4>
-                <ul>
-                    <li>Prepare presentations</li>
-                    <li>Analyze competitive quotes</li>
-                    <li>Draft email responses</li>
-                    <li>Generate training materials</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📢</div>
-                <h4>Marketing</h4>
-                <ul>
-                    <li>Analyze campaign performance</li>
-                    <li>Draft creative briefs</li>
-                    <li>Generate content variations</li>
-                    <li>Optimize messaging</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💰</div>
-                <h4>Finance & Analytics</h4>
-                <ul>
-                    <li>Build financial models</li>
-                    <li>Analyze combined ratio drivers</li>
-                    <li>Prepare investor materials</li>
-                    <li>Create dashboards</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">⚖️</div>
-                <h4>Legal & Compliance</h4>
-                <ul>
-                    <li>Review contracts</li>
-                    <li>Research regulations</li>
-                    <li>Draft policy documents</li>
-                    <li>Analyze legal risks</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💻</div>
-                <h4>IT & Development</h4>
-                <ul>
-                    <li>Debug code</li>
-                    <li>Review architectures</li>
-                    <li>Generate documentation</li>
-                    <li>Plan migrations</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📊</div>
-                <h4>Executive Leadership</h4>
-                <ul>
-                    <li>Strategic analysis</li>
-                    <li>Competitive intelligence</li>
-                    <li>Board presentations</li>
-                    <li>Investment decisions</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="security-badge">
-            <h3>Enterprise Security Badge</h3>
-            <div class="security-items">
-                <div class="security-item">✓ SOC 2 Type II Certified</div>
-                <div class="security-item">✓ Zero Data Retention</div>
-                <div class="security-item">✓ HIPAA Compliant</div>
-                <div class="security-item">✓ Private Deployment Options</div>
-                <div class="security-item">✓ Role-Based Access Control</div>
-                <div class="security-item">✓ Comprehensive Audit Logs</div>
-            </div>
-        </div>
-
-        <div class="productivity-calc">
-            <strong>Enterprise Productivity Calculator:</strong><br>
-            58,000 employees × 3 hours saved/week × 50 weeks × $75/hour = <strong>$652M annual productivity value</strong>
-        </div>
-    </section>
-
-    <!-- ROI Section -->
-    <section id="roi" class="section section-white">
-        <h2 class="section-title">Progressive + Claude: Measurable Business Impact</h2>
-
-        <div class="roi-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Initiative</th>
-                        <th>Annual Value</th>
-                        <th>Key Metrics</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Claims Processing Agents</td>
-                        <td><strong>$180M</strong></td>
-                        <td>LAE reduction, throughput increase</td>
-                    </tr>
-                    <tr>
-                        <td>Underwriting & Risk Management</td>
-                        <td><strong>$95M</strong></td>
-                        <td>Conversion improvement, Florida transition</td>
-                    </tr>
-                    <tr>
-                        <td>Customer Retention</td>
-                        <td><strong>$140M</strong></td>
-                        <td>Policy life expectancy, lifetime value</td>
-                    </tr>
-                    <tr>
-                        <td>Claude Code Developers</td>
-                        <td><strong>$36M</strong></td>
-                        <td>1,000 developers, 20 hrs/month saved</td>
-                    </tr>
-                    <tr>
-                        <td>Enterprise Productivity</td>
-                        <td><strong>$120M</strong></td>
-                        <td>58,000 employees, 3 hrs/week saved</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td><strong>TOTAL YEAR 1 IMPACT</strong></td>
-                        <td><strong>$571M</strong></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Investment</td>
-                        <td>$30M</td>
-                        <td>Software, implementation, training</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>NET YEAR 1 BENEFIT</strong></td>
-                        <td><strong>$541M</strong></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><strong>ROI</strong></td>
-                        <td><strong>1,803%</strong></td>
-                        <td>18x return on investment</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Payback Period</strong></td>
-                        <td><strong>19 days</strong></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout-box" style="margin-top: 3rem;">
-            <strong style="font-size: 1.5rem; display: block; margin-bottom: 1rem;">3-Year Cumulative Impact: $1.7B</strong>
-        </div>
-
-        <div class="strategic-impact">
-            <h3>Strategic Impact Beyond Financial: Your Path to #1</h3>
-            <ul>
-                <li><strong>Operational Excellence at Scale:</strong> Process 3x more claims, quotes, and policies without proportional cost increases—outpacing competitors in efficiency</li>
-                <li><strong>Speed to Market Advantage:</strong> Deploy pricing models and products 50% faster than industry average, capturing market share in high-growth segments</li>
-                <li><strong>Customer Experience Leadership:</strong> 24/7 AI-powered service that exceeds State Farm and Geico capabilities, driving NPS gains and retention superiority</li>
-                <li><strong>Talent Magnet:</strong> Attract top insurance and technology talent by offering the industry's most advanced AI-powered workplace</li>
-                <li><strong>Unassailable Technology Moat:</strong> Build AI capabilities competitors can't replicate, cementing long-term #1 market position</li>
-            </ul>
-        </div>
-
-        <div class="callout-box" style="margin-top: 2rem;">
-            <strong style="font-size: 1.3rem; display: block; margin-bottom: 1rem;">The #1 Position Requires #1 Technology</strong>
-            Progressive's innovation legacy—from drive-in claims to Snapshot telematics—has always been about doing things competitors couldn't. Claude AI continues that tradition, providing the operational excellence, customer experience, and speed that will propel Progressive from #3 to #1 in the P&C insurance market.
-        </div>
-    </section>
-
     <!-- Implementation Roadmap -->
     <section class="section section-gray">
         <h2 class="section-title">Your Path to AI Transformation</h2>
@@ -1600,7 +1636,7 @@
                         <li>Commercial auto underwriting agent: 10 states</li>
                         <li>Compliance & regulatory agent: All 50 states</li>
                         <li>Claude Code: All developers</li>
-                        <li>Claude Enterprise: All 58,000 employees</li>
+                        <li>Claude Enterprise: All 70,000 employees</li>
                     </ul>
                 </div>
             </div>
@@ -1659,60 +1695,6 @@
         </div>
     </section>
 
-    <!-- Executive CTA -->
-    <section id="cta" class="cta-section">
-        <h2 class="section-title" style="color: var(--white); text-align: center;">Transform Progressive with Claude AI</h2>
-
-        <div class="cta-grid">
-            <div class="cta-card">
-                <div class="cta-icon">📅</div>
-                <h3>Schedule Executive Briefing</h3>
-                <ul>
-                    <li>2-hour strategy session with Anthropic leadership</li>
-                    <li>Progressive-specific use case deep dive</li>
-                    <li>Custom ROI modeling for your operations</li>
-                    <li>Implementation roadmap and timeline</li>
-                    <li>Q&A with Claude product team</li>
-                </ul>
-                <a href="#" class="btn">Schedule Briefing</a>
-            </div>
-
-            <div class="cta-card">
-                <div class="cta-icon">💻</div>
-                <h3>Request Technical Demo</h3>
-                <ul>
-                    <li>Live custom agent demonstrations</li>
-                    <li>Claude Code developer walkthrough</li>
-                    <li>Security & compliance architecture review</li>
-                    <li>Integration discussion with your systems</li>
-                    <li>Technical Q&A with engineering team</li>
-                </ul>
-                <a href="#" class="btn">Request Demo</a>
-            </div>
-
-            <div class="cta-card">
-                <div class="cta-icon">📄</div>
-                <h3>Download Executive Brief</h3>
-                <ul>
-                    <li>15-page executive summary (PDF)</li>
-                    <li>Technical architecture overview</li>
-                    <li>Security and compliance documentation</li>
-                    <li>Insurance industry case studies</li>
-                    <li>ROI calculator spreadsheet</li>
-                </ul>
-                <a href="#" class="btn">Download Resources</a>
-            </div>
-        </div>
-
-        <div style="background: var(--white); padding: 2rem; border-radius: 8px; margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid rgba(0,119,179,0.1);">
-            <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Prefer to speak directly?</h3>
-            <p style="color: var(--dark-gray); font-size: 1.1rem;">
-                <strong>Email:</strong> insurance@anthropic.com<br>
-                <strong>Phone:</strong> Contact our insurance industry team<br>
-                <strong>LinkedIn:</strong> Anthropic
-            </p>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
