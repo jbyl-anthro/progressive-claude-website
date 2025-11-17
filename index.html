@@ -741,6 +741,20 @@
             .timeline-item {
                 flex-direction: column;
             }
+
+            .maturity-levels {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .maturity-level {
+                height: auto !important;
+                min-height: 200px;
+            }
+
+            .maturity-axis {
+                display: none;
+            }
         }
 
         /* Animations */
@@ -949,6 +963,124 @@
             justify-content: center;
         }
 
+        /* AI Maturity Model */
+        .maturity-section {
+            background: var(--white);
+            padding: 5rem 2rem;
+            overflow: hidden;
+        }
+
+        .maturity-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .maturity-levels {
+            display: flex;
+            align-items: flex-end;
+            gap: 0;
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .maturity-level {
+            flex: 1;
+            position: relative;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .maturity-level:hover {
+            transform: translateY(-8px);
+        }
+
+        .level-1 {
+            background: #c4c4c4;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .level-2 {
+            background: #7ba4d1;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .level-3 {
+            background: #a5d5d8;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .level-badge {
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            color: rgba(0,0,0,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .level-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .level-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .level-examples {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: rgba(0,0,0,0.65);
+            font-style: italic;
+        }
+
+        .maturity-axis {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+            white-space: nowrap;
+        }
+
+        .maturity-highlight {
+            background: linear-gradient(135deg, rgba(0,119,179,0.1) 0%, rgba(127,230,202,0.1) 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .maturity-highlight h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .maturity-highlight p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+        }
+
         .productivity-calc {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
             color: var(--white);
@@ -1144,6 +1276,60 @@
                     <strong>Real Impact:</strong>
                     Target combined ratio improvements through intelligent automation + human expertise
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Maturity Model -->
+    <section class="maturity-section">
+        <h2 class="section-title">Progressive's AI Transformation Journey</h2>
+        <p class="intro-text">
+            Most insurance enterprises are at Level 1. Progressive's partnership with Claude accelerates your path to Level 3—unlocking transformational business impact across all four strategic pillars.
+        </p>
+
+        <div class="maturity-container">
+            <div class="maturity-axis">Business Impact →</div>
+            <div class="maturity-levels">
+                <div class="maturity-level level-1">
+                    <div class="level-badge">Level 1</div>
+                    <div class="level-title">Foundation</div>
+                    <div class="level-description">AI Governance; Launch AI Chat Tool</div>
+                    <div class="level-examples">Initial use cases around productivity and efficiency</div>
+                </div>
+
+                <div class="maturity-level level-2">
+                    <div class="level-badge">Level 2</div>
+                    <div class="level-title">Integration</div>
+                    <div class="level-description">System Integration Enables Agentic AI</div>
+                    <div class="level-examples">Business process redefinition across claims, underwriting, and customer service</div>
+                </div>
+
+                <div class="maturity-level level-3">
+                    <div class="level-badge">Level 3</div>
+                    <div class="level-title">Transformation</div>
+                    <div class="level-description">AI-First Organization</div>
+                    <div class="level-examples">$100M+ efficiencies and new revenue streams; reimagined operating model</div>
+                </div>
+            </div>
+
+            <div class="maturity-highlight" style="background: linear-gradient(135deg, rgba(123,164,209,0.15) 0%, rgba(123,164,209,0.05) 100%); border-left-color: #7ba4d1;">
+                <h3>Progressive's Path to Level 2: Integration</h3>
+                <p>
+                    <strong>Claude Code reimagines your SDLC:</strong> Your 1,000+ developers work differently when Claude Code becomes their AI pair programmer. Legacy modernization accelerates, cross-team collaboration improves, and code quality increases—all while maintaining Progressive's rigorous standards. Development teams integrate AI into every sprint, every deployment, every system update.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Claude Enterprise enables intelligent collaboration:</strong> GenAI collaborators purpose-built for Progressive—customized for each company priority, each department's workflow, and each role's specific needs. Claims adjusters get AI trained on 400+ years of Progressive expertise. Underwriters receive guidance shaped by your geographic risk models. Sales agents access product knowledge across all 50 states instantly. This isn't generic AI—it's Progressive's AI, working how Progressive works, enhancing how your 70,000 employees collaborate and deliver results.
+                </p>
+            </div>
+
+            <div class="maturity-highlight">
+                <h3>Progressive's Path to Level 3: Transformation</h3>
+                <p>
+                    <strong>Where Progressive is today:</strong> Advanced AI capabilities in photo estimating and pricing models position Progressive ahead of most P&C insurers. Claude accelerates the journey from foundational AI to full transformation.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>The Claude advantage:</strong> Unlike point solutions, Claude provides the enterprise platform to reach Level 3—integrating across all systems (claims, policy, CRM), enabling autonomous agents, and delivering the $571M+ annual value that transforms Progressive into the AI-powered insurance leader.
+                </p>
             </div>
         </div>
     </section>
