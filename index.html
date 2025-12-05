@@ -11,19 +11,50 @@
             box-sizing: border-box;
         }
 
+        /* Progressive Brand Design System */
         :root {
+            /* Primary Colors */
+            --progressive-blue: #0077b3;
+            --progressive-blue-dark: #005a8c;
+            --progressive-blue-light: #8fd8f2;
+
+            /* Legacy aliases for compatibility */
             --primary-blue: #0077b3;
             --light-blue: #8fd8f2;
             --dark-blue: #005a8c;
-            --accent-blue: #00a3d9;
+            --accent-blue: #0077b3;
+
+            /* Neutrals */
             --white: #FFFFFF;
             --light-gray: #f3f9fc;
             --dark-gray: #2d2d2d;
             --medium-gray: #707070;
-            --success-green: #7ee0ca;
             --text-gray: #707070;
+            --border: #d1e2e5;
+
+            /* Semantic Colors */
+            --success-green: #7ee0ca;
+            --success-green-light: #bdefe6;
             --accent-orange: #ffa452;
+            --accent-orange-light: #ffcc8f;
             --accent-purple: #c973c9;
+            --accent-purple-light: #e4b9e4;
+            --error: #d41659;
+            --warning: #ffd039;
+
+            /* Typography */
+            --font-primary: "96 Sans", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            --font-mono: "96 Sans Monospaced", monospace;
+
+            /* Spacing */
+            --space-xs: 16px;
+            --space-sm: 24px;
+            --space-md: 40px;
+            --space-lg: 60px;
+
+            /* Borders */
+            --radius: 5px;
+            --radius-lg: 8px;
         }
 
         html {
@@ -31,10 +62,77 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 400;
             line-height: 1.6;
             color: var(--dark-gray);
             background: var(--white);
+        }
+
+        /* Progressive Typography Scale */
+        h1 {
+            font-size: 3.375rem;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            line-height: 1.33;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.33;
+        }
+
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        h5 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Progressive Link Styles with Gradient Underline Animation */
+        a {
+            color: var(--progressive-blue);
+            text-decoration: none;
+            background-image: linear-gradient(var(--progressive-blue), var(--progressive-blue));
+            background-size: 0% 2px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease, color 0.3s ease;
+        }
+
+        a:hover {
+            background-size: 100% 2px;
+        }
+
+        /* Progressive Focus States for Accessibility */
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        [tabindex]:focus {
+            outline: 3px dashed var(--progressive-blue);
+            outline-offset: 2px;
+        }
+
+        /* Progressive Button Base Styles */
+        .btn, button, [type="button"], [type="submit"] {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            border-radius: var(--radius);
+            transition: all 0.2s ease;
         }
 
         /* Navigation */
@@ -43,15 +141,15 @@
             top: 0;
             width: 100%;
             background: var(--white);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             z-index: 1000;
             transition: all 0.3s ease;
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1270px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: var(--space-xs) var(--space-sm);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,62 +158,87 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
+            background: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: var(--space-sm);
             align-items: center;
             list-style: none;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--dark-gray);
             font-weight: 500;
-            transition: color 0.3s ease;
+            background-image: linear-gradient(var(--progressive-blue), var(--progressive-blue));
+            background-size: 0% 2px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease, color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
+            background-size: 100% 2px;
         }
 
+        /* Progressive Primary Button */
         .cta-button {
-            background: var(--accent-blue);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            background: var(--progressive-blue);
+            color: var(--white) !important;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            transition: all 0.2s ease;
+            background-image: none;
         }
 
         .cta-button:hover {
-            background: var(--primary-blue);
+            background: var(--progressive-blue-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 163, 224, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 119, 179, 0.3);
+            background-size: 0;
+        }
+
+        /* Progressive Secondary Button with Signature Shadow */
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--progressive-blue);
+            border: 2px solid var(--progressive-blue);
+            border-radius: var(--radius);
+            padding: 12px 24px;
+            font-weight: 700;
+            box-shadow: 8px -8px 0 0 var(--progressive-blue-light);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 4px -4px 0 0 var(--progressive-blue-light);
+            transform: translate(2px, -2px);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%);
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 50%, var(--progressive-blue) 100%);
             color: var(--white);
-            padding: 8rem 2rem 4rem;
-            margin-top: 70px;
+            padding: var(--space-lg) var(--space-sm) var(--space-md);
+            padding-top: calc(var(--space-lg) + 70px);
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.375rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: var(--space-xs);
+            line-height: 1.15;
         }
 
         .hero .subheadline {
             font-size: 1.5rem;
-            margin-bottom: 3rem;
+            font-weight: 300;
+            margin-bottom: var(--space-md);
             opacity: 0.95;
             max-width: 900px;
             margin-left: auto;
@@ -125,16 +248,17 @@
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
+            gap: var(--space-sm);
+            max-width: 1270px;
             margin: 0 auto;
         }
 
         .stat-item {
-            padding: 2rem;
+            padding: var(--space-sm);
             background: rgba(255,255,255,0.1);
-            border-radius: 8px;
+            border-radius: var(--radius);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
         .stat-number {
@@ -147,38 +271,40 @@
         .stat-label {
             font-size: 0.95rem;
             opacity: 0.9;
+            font-weight: 400;
         }
 
         /* Strategic Pillars Section */
         .pillars-section {
             background: var(--light-gray);
-            padding: 5rem 2rem;
+            padding: var(--space-lg) var(--space-sm);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 3rem;
+            font-size: 2.25rem;
+            font-weight: 300;
+            color: var(--progressive-blue);
+            margin-bottom: var(--space-md);
         }
 
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
+            gap: var(--space-sm);
+            max-width: 1270px;
             margin: 0 auto;
             align-items: stretch;
         }
 
+        /* Progressive Card Style */
         .pillar-card {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,119,179,0.1);
+            border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -186,20 +312,36 @@
 
         .pillar-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .pillar-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            margin-bottom: var(--space-xs);
+            background: var(--light-gray);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .pillar-card:hover .pillar-icon {
+            background: var(--progressive-blue-light);
+            transform: scale(1.05);
         }
 
         .pillar-title {
-            font-size: 1.5rem;
+            font-size: 1.125rem;
             font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
+            color: var(--progressive-blue);
+            margin-bottom: var(--space-xs);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -208,11 +350,11 @@
             font-size: 1rem;
             font-style: italic;
             color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            padding: 1rem;
+            margin-bottom: var(--space-xs);
+            padding: var(--space-xs);
             background: var(--light-gray);
-            border-left: 3px solid var(--accent-blue);
-            border-radius: 5px;
+            border-left: 3px solid var(--progressive-blue);
+            border-radius: var(--radius);
             min-height: 70px;
             display: flex;
             align-items: center;
@@ -220,14 +362,14 @@
 
         .pillar-helps {
             font-weight: 600;
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
+            color: var(--progressive-blue-dark);
+            margin-bottom: var(--space-xs);
             font-size: 1.1rem;
         }
 
         .pillar-card ul {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-xs);
             flex-grow: 1;
         }
 
@@ -238,19 +380,23 @@
             color: var(--dark-gray);
         }
 
+        /* Progressive List Bullet Style */
         .pillar-card ul li:before {
-            content: "→";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--progressive-blue);
+            border-radius: 50%;
         }
 
         .real-impact {
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-blue) 100%);
+            background: linear-gradient(135deg, var(--progressive-blue-light) 0%, var(--progressive-blue) 100%);
             color: var(--white);
-            padding: 1.25rem;
-            border-radius: 8px;
+            padding: var(--space-xs);
+            border-radius: var(--radius);
             font-weight: 600;
             font-size: 0.95rem;
             min-height: 85px;
@@ -267,8 +413,8 @@
 
         /* Section Container */
         .section {
-            padding: 5rem 2rem;
-            max-width: 1400px;
+            padding: var(--space-lg) var(--space-sm);
+            max-width: 1270px;
             margin: 0 auto;
         }
 
@@ -284,22 +430,23 @@
         .three-column {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
         }
 
         .column-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,119,179,0.1);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
         }
 
         .column-card h3 {
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .column-card ul {
@@ -314,107 +461,524 @@
         }
 
         .column-card ul li:before {
-            content: "✓";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--success-green);
-            font-weight: bold;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--success-green);
+            border-radius: 50%;
         }
 
         .callout-box {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%);
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 50%, var(--progressive-blue) 100%);
             color: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            margin-top: 3rem;
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            margin-top: var(--space-md);
             font-size: 1.1rem;
             line-height: 1.8;
             font-style: italic;
             text-align: center;
         }
 
-        /* Use Case Cards */
+        /* Capability Cards - Three Pillar Layout */
+        .capability-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            align-items: stretch;
+        }
+
+        .capability-card {
+            background: var(--white);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
+        }
+
+        .capability-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            margin-bottom: var(--space-xs);
+            transition: all 0.3s ease;
+        }
+
+        .capability-card:hover .capability-icon {
+            background: var(--progressive-blue-light);
+            transform: scale(1.05);
+        }
+
+        .capability-card h3 {
+            color: var(--progressive-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .capability-card ul {
+            list-style: none;
+            flex-grow: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .capability-card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .capability-card ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--success-green);
+            border-radius: 50%;
+        }
+
+        .capability-metric {
+            background: var(--light-gray);
+            padding: var(--space-xs);
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-gray);
+            border-left: 3px solid var(--progressive-blue);
+            margin-top: auto;
+        }
+
+        .capability-metric .metric-highlight {
+            color: var(--progressive-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Case Studies Section */
+        .case-studies-section {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
+        }
+
+        .case-studies-header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--progressive-blue);
+            margin-bottom: var(--space-sm);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+        }
+
+        .case-study-card {
+            background: var(--white);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--success-green);
+        }
+
+        .case-study-badge {
+            display: inline-block;
+            background: var(--success-green);
+            color: var(--dark-gray);
+            padding: 4px 12px;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-xs);
+        }
+
+        .case-study-card h4 {
+            color: var(--progressive-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .case-study-card p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            margin-bottom: var(--space-xs);
+        }
+
+        .case-study-relevance {
+            background: var(--light-gray);
+            padding: var(--space-xs);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+        }
+
+        .case-study-card blockquote {
+            border-left: 3px solid var(--progressive-blue-light);
+            padding-left: var(--space-xs);
+            margin: var(--space-xs) 0;
+            font-style: italic;
+            color: var(--text-gray);
+        }
+
+        .case-study-card blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--progressive-blue-dark);
+            font-size: 0.9rem;
+        }
+
+        .case-study-link {
+            display: inline-block;
+            color: var(--progressive-blue);
+            font-weight: 600;
+            margin-top: var(--space-xs);
+        }
+
+        /* Transformation Banner */
+        .transformation-banner {
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 100%);
+            color: var(--white);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .transformation-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .transformation-text {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        /* New Agent Cards Grid */
+        .agent-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .agent-card-new {
+            background: var(--white);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agent-card-new:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
+        }
+
+        .agent-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            margin-bottom: var(--space-xs);
+            transition: all 0.3s ease;
+        }
+
+        .agent-card-new:hover .agent-icon-wrapper {
+            background: var(--progressive-blue-light);
+            transform: scale(1.05);
+        }
+
+        .agent-card-new h3 {
+            color: var(--progressive-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .agent-tagline {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: var(--space-xs);
+        }
+
+        .agent-capabilities {
+            margin-bottom: var(--space-xs);
+            flex-grow: 1;
+        }
+
+        .capability-item {
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .capability-item:last-child {
+            border-bottom: none;
+        }
+
+        .capability-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--success-green);
+            border-radius: 50%;
+        }
+
+        .agent-metrics {
+            display: flex;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-xs);
+        }
+
+        .metric-row {
+            flex: 1;
+            background: var(--light-gray);
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .metric-row .metric-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--progressive-blue);
+        }
+
+        .metric-row .metric-desc {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .agent-transformation {
+            background: linear-gradient(135deg, rgba(0,119,179,0.1) 0%, rgba(126,224,202,0.1) 100%);
+            padding: var(--space-xs);
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            border-left: 3px solid var(--progressive-blue);
+            margin-top: auto;
+        }
+
+        .agent-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: var(--space-xs);
+            padding: 12px 24px;
+            background: var(--progressive-blue);
+            color: var(--white);
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 4px -4px 0 0 var(--progressive-blue-light);
+        }
+
+        .agent-demo-btn:hover {
+            background: var(--progressive-blue-dark);
+            box-shadow: 2px -2px 0 0 var(--progressive-blue-light);
+            transform: translate(1px, -1px);
+        }
+
+        .agent-demo-btn svg {
+            transition: transform 0.2s ease;
+        }
+
+        .agent-demo-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Transformation Summary */
+        .transformation-summary {
+            background: var(--white);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
+        }
+
+        .transformation-summary h3 {
+            color: var(--progressive-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-xs);
+        }
+
+        .summary-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .summary-text strong {
+            display: block;
+            color: var(--dark-gray);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .summary-text span {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Legacy Use Case Cards - kept for compatibility */
         .use-cases-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
         }
 
         .use-case-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--light-blue);
-            border: 1px solid rgba(0,119,179,0.1);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border-top: 4px solid var(--progressive-blue-light);
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
 
         .use-case-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .use-case-card h4 {
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .use-case-card .challenge,
         .use-case-card .solution,
         .use-case-card .impact {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-xs);
         }
 
         .use-case-card .label {
             font-weight: 700;
-            color: var(--dark-blue);
+            color: var(--progressive-blue-dark);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             letter-spacing: 0.5px;
         }
 
         .impact-stat {
             background: var(--light-gray);
-            padding: 1rem;
-            border-radius: 5px;
+            padding: var(--space-xs);
+            border-radius: var(--radius);
             margin-top: 0.5rem;
             font-weight: 600;
-            color: var(--success-green);
+            color: var(--progressive-blue-dark);
+            border-left: 3px solid var(--success-green);
         }
 
         /* Agent Cards */
         .agent-card {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-            border-left: 6px solid var(--light-blue);
-            border: 1px solid rgba(0,119,179,0.1);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            margin-bottom: var(--space-sm);
+            border-left: 6px solid var(--progressive-blue-light);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .agent-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-xs);
+            flex-wrap: wrap;
+            gap: var(--space-xs);
         }
 
         .agent-title {
-            font-size: 1.75rem;
-            color: var(--primary-blue);
+            font-size: 1.5rem;
+            color: var(--progressive-blue);
             font-weight: 700;
         }
 
         .status-badge {
             background: var(--success-green);
-            color: var(--white);
+            color: var(--dark-gray);
             padding: 0.5rem 1rem;
-            border-radius: 16px;
+            border-radius: var(--radius);
             font-size: 0.85rem;
             font-weight: 600;
         }
@@ -422,39 +986,40 @@
         .agent-oneliner {
             font-size: 1.1rem;
             color: var(--text-gray);
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-sm);
             font-style: italic;
         }
 
         .agent-section {
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-sm);
         }
 
         .agent-section h4 {
-            color: var(--dark-blue);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            color: var(--progressive-blue-dark);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .business-impact-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: var(--space-xs);
             background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 6px;
+            padding: var(--space-sm);
+            border-radius: var(--radius);
         }
 
         .impact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: var(--space-xs);
         }
 
         .impact-number {
             font-size: 1.75rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             white-space: nowrap;
         }
 
@@ -464,12 +1029,12 @@
         }
 
         .annual-value {
-            background: linear-gradient(135deg, var(--success-green) 0%, var(--primary-blue) 100%);
+            background: linear-gradient(135deg, var(--success-green) 0%, var(--progressive-blue) 100%);
             color: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: var(--space-sm);
+            border-radius: var(--radius);
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: var(--space-xs);
         }
 
         .annual-value-number {
@@ -481,11 +1046,11 @@
         /* ROI Table */
         .roi-table {
             background: var(--white);
-            border-radius: 8px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-top: 3rem;
-            border: 1px solid rgba(0,119,179,0.1);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            margin-top: var(--space-md);
+            border: 1px solid var(--border);
         }
 
         .roi-table table {
@@ -494,15 +1059,15 @@
         }
 
         .roi-table th {
-            background: var(--primary-blue);
+            background: var(--progressive-blue);
             color: var(--white);
-            padding: 1.25rem;
+            padding: var(--space-xs);
             text-align: left;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .roi-table td {
-            padding: 1.25rem;
+            padding: var(--space-xs);
             border-bottom: 1px solid var(--light-gray);
         }
 
@@ -517,44 +1082,45 @@
         }
 
         .roi-table .highlight-row {
-            background: linear-gradient(135deg, rgba(0, 163, 224, 0.1) 0%, rgba(28, 91, 166, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(0, 119, 179, 0.1) 0%, rgba(0, 90, 140, 0.1) 100%);
             font-weight: 700;
         }
 
         /* Timeline */
         .timeline {
-            margin-top: 3rem;
+            margin-top: var(--space-md);
         }
 
         .timeline-item {
             display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
             align-items: flex-start;
         }
 
         .timeline-quarter {
             min-width: 180px;
             max-width: 180px;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             flex-shrink: 0;
         }
 
         .timeline-content {
             flex: 1;
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,119,179,0.1);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            border: 1px solid var(--border);
         }
 
         .timeline-content h4 {
-            color: var(--dark-blue);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            color: var(--progressive-blue-dark);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .timeline-content ul {
@@ -568,57 +1134,61 @@
         }
 
         .timeline-content ul li:before {
-            content: "→";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--progressive-blue);
+            border-radius: 50%;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 100%);
+            padding: var(--space-lg) var(--space-sm);
         }
 
         .cta-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 3rem auto 0;
+            gap: var(--space-sm);
+            max-width: 1270px;
+            margin: var(--space-md) auto 0;
         }
 
         .cta-card {
             background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: var(--space-md) var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,119,179,0.1);
+            border: 1px solid var(--border);
         }
 
         .cta-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,119,179,0.15);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .cta-icon {
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-xs);
         }
 
         .cta-card h3 {
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .cta-card ul {
             text-align: left;
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-sm);
         }
 
         .cta-card ul li {
@@ -628,49 +1198,55 @@
         }
 
         .cta-card ul li:before {
-            content: "•";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--progressive-blue);
+            border-radius: 50%;
         }
 
         .cta-card .btn {
-            background: var(--accent-blue);
+            background: var(--progressive-blue);
             color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 6px;
+            padding: 12px 24px;
+            border-radius: var(--radius);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            background-image: none;
         }
 
         .cta-card .btn:hover {
-            background: var(--primary-blue);
+            background: var(--progressive-blue-dark);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 119, 179, 0.3);
         }
 
         /* Footer */
         footer {
             background: var(--dark-gray);
             color: var(--white);
-            padding: 4rem 2rem 2rem;
+            padding: var(--space-md) var(--space-sm) var(--space-sm);
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1270px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
         }
 
         .footer-column h4 {
             color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-xs);
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .footer-column ul {
@@ -683,18 +1259,22 @@
 
         .footer-column a {
             color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
+            background-image: linear-gradient(var(--progressive-blue-light), var(--progressive-blue-light));
+            background-size: 0% 2px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease, color 0.3s ease;
         }
 
         .footer-column a:hover {
-            color: var(--accent-blue);
+            color: var(--progressive-blue-light);
+            background-size: 100% 2px;
         }
 
         .footer-bottom {
-            max-width: 1400px;
+            max-width: 1270px;
             margin: 0 auto;
-            padding-top: 2rem;
+            padding-top: var(--space-sm);
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
             color: rgba(255,255,255,0.6);
@@ -724,6 +1304,10 @@
             .pillars-grid,
             .three-column,
             .use-cases-grid,
+            .capability-cards,
+            .case-studies-grid,
+            .agent-cards-grid,
+            .summary-grid,
             .cta-grid,
             .footer-content,
             .videos-grid {
@@ -777,28 +1361,35 @@
         .department-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
         }
 
         .department-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             text-align: center;
-            border: 1px solid rgba(0,119,179,0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .department-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .department-icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-xs);
         }
 
         .department-card h4 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
+            color: var(--progressive-blue);
+            margin-bottom: var(--space-xs);
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .department-card ul {
@@ -810,40 +1401,55 @@
         .department-card ul li {
             margin-bottom: 0.5rem;
             color: var(--text-gray);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .department-card ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 4px;
+            height: 4px;
+            background-color: var(--progressive-blue);
+            border-radius: 50%;
         }
 
         /* Security Badge */
         .security-badge {
             background: var(--success-green);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
+            color: var(--dark-gray);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            margin-top: var(--space-md);
         }
 
         .security-badge h3 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            margin-bottom: var(--space-xs);
             text-align: center;
+            font-weight: 700;
         }
 
         .security-items {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: var(--space-xs);
         }
 
         .security-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 600;
         }
 
         .intro-text {
             font-size: 1.15rem;
             color: var(--text-gray);
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-sm);
             text-align: center;
             max-width: 1000px;
             margin-left: auto;
@@ -853,12 +1459,12 @@
         .video-container {
             position: relative;
             max-width: 900px;
-            margin: 3rem auto;
+            margin: var(--space-md) auto;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
         }
 
         .video-container iframe {
@@ -873,24 +1479,25 @@
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: var(--space-sm);
             max-width: 1200px;
-            margin: 3rem auto;
+            margin: var(--space-md) auto;
         }
 
         .video-card {
             background: var(--white);
-            border-radius: 8px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             transition: all 0.3s ease;
             text-decoration: none;
             display: block;
+            border: 1px solid var(--border);
         }
 
         .video-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,119,179,0.2);
+            box-shadow: 0 8px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .video-card-container {
@@ -898,7 +1505,7 @@
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -935,21 +1542,24 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: var(--primary-blue);
+            color: var(--progressive-blue);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 119, 179, 0.3);
         }
 
         .video-card:hover .video-play-button {
             background: var(--white);
             transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 119, 179, 0.4);
         }
 
         .video-title {
-            padding: 1.5rem;
+            padding: var(--space-xs);
             text-align: center;
-            font-weight: 600;
-            color: var(--primary-blue);
+            font-weight: 700;
+            color: var(--progressive-blue);
             font-size: 1.1rem;
+            background: none;
         }
 
         .video-link-container {
@@ -966,13 +1576,13 @@
         /* AI Maturity Model */
         .maturity-section {
             background: var(--white);
-            padding: 5rem 2rem;
+            padding: var(--space-lg) var(--space-sm);
             overflow: hidden;
         }
 
         .maturity-container {
             max-width: 1200px;
-            margin: 3rem auto;
+            margin: var(--space-md) auto;
             position: relative;
         }
 
@@ -981,15 +1591,15 @@
             align-items: flex-end;
             gap: 0;
             position: relative;
-            padding-top: 2rem;
+            padding-top: var(--space-sm);
         }
 
         .maturity-level {
             flex: 1;
             position: relative;
-            padding: 2rem 1.5rem;
+            padding: var(--space-sm) var(--space-xs);
             transition: all 0.3s ease;
-            border-radius: 8px 8px 0 0;
+            border-radius: var(--radius) var(--radius) 0 0;
         }
 
         .maturity-level:hover {
@@ -1005,7 +1615,7 @@
         }
 
         .level-2 {
-            background: #7ba4d1;
+            background: var(--progressive-blue-light);
             height: 280px;
             display: flex;
             flex-direction: column;
@@ -1013,7 +1623,7 @@
         }
 
         .level-3 {
-            background: #a5d5d8;
+            background: var(--success-green-light);
             height: 380px;
             display: flex;
             flex-direction: column;
@@ -1022,7 +1632,7 @@
 
         .level-badge {
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             margin-bottom: 0.5rem;
             color: rgba(0,0,0,0.7);
             text-transform: uppercase;
@@ -1030,10 +1640,10 @@
         }
 
         .level-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--dark-gray);
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-xs);
         }
 
         .level-description {
@@ -1062,17 +1672,18 @@
         }
 
         .maturity-highlight {
-            background: linear-gradient(135deg, rgba(0,119,179,0.1) 0%, rgba(127,230,202,0.1) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
-            border-left: 4px solid var(--accent-blue);
+            background: linear-gradient(135deg, rgba(0,119,179,0.1) 0%, rgba(126,224,202,0.1) 100%);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            margin-top: var(--space-md);
+            border-left: 4px solid var(--progressive-blue);
         }
 
         .maturity-highlight h3 {
-            color: var(--primary-blue);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            color: var(--progressive-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
         }
 
         .maturity-highlight p {
@@ -1082,27 +1693,28 @@
         }
 
         .productivity-calc {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            background: linear-gradient(135deg, var(--progressive-blue) 0%, var(--progressive-blue-dark) 100%);
             color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
+            padding: var(--space-sm);
+            border-radius: var(--radius);
             text-align: center;
             font-size: 1.25rem;
-            margin-top: 2rem;
+            margin-top: var(--space-sm);
         }
 
         .strategic-impact {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-top: 3rem;
-            border: 1px solid rgba(0,119,179,0.1);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
+            margin-top: var(--space-md);
+            border: 1px solid var(--border);
         }
 
         .strategic-impact h3 {
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
+            color: var(--progressive-blue);
+            margin-bottom: var(--space-xs);
+            font-weight: 700;
         }
 
         .strategic-impact ul {
@@ -1117,34 +1729,42 @@
         }
 
         .strategic-impact ul li:before {
-            content: "→";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
-            font-size: 1.5rem;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background-color: var(--progressive-blue);
+            border-radius: 50%;
         }
 
         .metrics-dashboard {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
         }
 
         .metric-card {
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: var(--space-xs);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 0 0 rgba(209, 226, 229, 0.35);
             text-align: center;
-            border: 1px solid rgba(0,119,179,0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 0 rgba(209, 226, 229, 0.5);
         }
 
         .metric-card .metric-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--success-green);
+            color: var(--progressive-blue);
             margin-bottom: 0.5rem;
         }
 
@@ -1162,7 +1782,6 @@
             <ul class="nav-links">
                 <li><a href="#pillars">Strategic Pillars</a></li>
                 <li><a href="#claude-code">Claude Code</a></li>
-                <li><a href="#enterprise">Enterprise</a></li>
                 <li><a href="#custom-agents">Custom Agents</a></li>
             </ul>
         </div>
@@ -1170,7 +1789,7 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1>Claude AI Powers Progressive's Strategic Pillars</h1>
+        <h1>Claude Powers Progressive's Strategic Pillars</h1>
         <p class="subheadline">Enterprise AI that transforms claims, underwriting, and customer experience while empowering your 70,000 employees</p>
 
         <div class="stats-row">
@@ -1200,7 +1819,16 @@
         <div class="pillars-grid">
             <!-- Pillar 1: People and Culture -->
             <div class="pillar-card">
-                <span class="pillar-icon">👥</span>
+                <span class="pillar-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="14" r="6" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M12 38c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                        <circle cx="38" cy="16" r="4" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M42 34c0-4.418-2.686-8-6-8" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                        <circle cx="10" cy="16" r="4" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M6 34c0-4.418 2.686-8 6-8" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </span>
                 <h3 class="pillar-title">People and Culture</h3>
                 <div class="pillar-description">
                     "Ensuring that our people and culture collectively remain our most powerful source of competitive advantage."
@@ -1216,7 +1844,15 @@
 
             <!-- Pillar 2: Broad Needs -->
             <div class="pillar-card">
-                <span class="pillar-icon">🎯</span>
+                <span class="pillar-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="18" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <circle cx="24" cy="24" r="12" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <circle cx="24" cy="24" r="6" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <circle cx="24" cy="24" r="2" fill="#0077b3"/>
+                        <path d="M24 2v6M24 40v6M2 24h6M40 24h6" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
                 <h3 class="pillar-title">Broad Needs</h3>
                 <div class="pillar-description">
                     "Meeting the broader needs of our customers throughout their lifetimes."
@@ -1232,7 +1868,13 @@
 
             <!-- Pillar 3: Leading Brand -->
             <div class="pillar-card">
-                <span class="pillar-icon">💡</span>
+                <span class="pillar-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4c-8.284 0-15 6.716-15 15 0 5.523 3 10.343 7.5 12.93V36a3 3 0 003 3h9a3 3 0 003-3v-4.07c4.5-2.587 7.5-7.407 7.5-12.93 0-8.284-6.716-15-15-15z" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M18 44h12M20 39v5M28 39v5" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M24 12v8M20 16l4 4 4-4" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
                 <h3 class="pillar-title">Leading Brand</h3>
                 <div class="pillar-description">
                     "Maintaining a leading brand recognized for innovative offerings and supported by experiences that instill confidence."
@@ -1248,7 +1890,14 @@
 
             <!-- Pillar 4: Competitive Prices -->
             <div class="pillar-card">
-                <span class="pillar-icon">📊</span>
+                <span class="pillar-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 42h36" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M10 42V26M18 42V18M26 42V30M34 42V22M42 42V14" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M6 32l10-10 8 6 10-12 8-6" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="42" cy="10" r="4" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </span>
                 <h3 class="pillar-title">Competitive Prices</h3>
                 <div class="pillar-description">
                     "Offering competitive prices driven by industry-leading segmentation, claims accuracy, and operational efficiency."
@@ -1312,7 +1961,7 @@
                     <strong>Where Progressive is today:</strong> Advanced AI capabilities in photo estimating and pricing models position Progressive ahead of most P&C insurers. Claude accelerates the journey from foundational AI to full transformation.
                 </p>
                 <p style="margin-top: 1rem;">
-                    <strong>The Claude advantage:</strong> Unlike point solutions, Claude provides the enterprise platform to reach Level 3—integrating across all systems (claims, policy, CRM), enabling autonomous agents, and delivering the $571M+ annual value that transforms Progressive into the AI-powered insurance leader.
+                    <strong>The Claude advantage:</strong> Unlike point solutions, Claude provides the enterprise platform to reach Level 3—integrating across all systems (claims, policy, CRM), enabling autonomous agents, and delivering hundreds of millions of dollars in annual value that transforms Progressive into the AI-powered insurance leader.
                 </p>
             </div>
         </div>
@@ -1338,20 +1987,20 @@
                 <ul>
                     <li>SOC 2 Type II certified, HIPAA compliant</li>
                     <li>Zero data retention - your data never trains our models</li>
-                    <li>Private deployment options for sensitive workloads</li>
-                    <li>Role-based access control and comprehensive audit logs</li>
-                    <li>Meets stringent insurance industry security standards</li>
+                    <li>Complete audit trails for every AI interaction and decision</li>
+                    <li>Role-based access control with comprehensive logging</li>
+                    <li>Meets stringent insurance regulatory requirements</li>
                 </ul>
             </div>
 
             <div class="column-card">
-                <h3>Augmentation Philosophy</h3>
+                <h3>Auditability & Traceability</h3>
                 <ul>
-                    <li>Designed to enhance human expertise, not replace it</li>
-                    <li>Your adjusters, agents, and underwriters remain in control</li>
-                    <li>AI handles repetitive tasks, humans handle judgment calls</li>
-                    <li>Aligns with Progressive's "people and culture" competitive advantage</li>
-                    <li>Constitutional AI approach ensures responsible, controlled outputs</li>
+                    <li>Full decision traceability for regulatory examinations</li>
+                    <li>Explainable AI outputs—understand why recommendations were made</li>
+                    <li>Document every claim decision, underwriting action, and customer interaction</li>
+                    <li>Chain-of-thought reasoning visible for compliance review</li>
+                    <li>Built for state insurance department audit requirements</li>
                 </ul>
             </div>
         </div>
@@ -1369,7 +2018,7 @@
             Progressive's competitive advantage relies on sophisticated technology—advanced segmentation models, machine vision claims systems, real-time pricing engines, and seamless omnichannel experiences. Claude Code empowers your 1,000+ developers to build, modernize, and scale these mission-critical systems faster while maintaining Progressive's quality standards.
         </p>
 
-        <div class="videos-grid">
+        <div class="videos-grid" style="grid-template-columns: repeat(3, 1fr);">
             <a href="https://www.youtube.com/watch?v=iF9iV4xponk" target="_blank" rel="noopener noreferrer" class="video-card">
                 <div class="video-card-container">
                     <img src="https://img.youtube.com/vi/iF9iV4xponk/maxresdefault.jpg" alt="Claude Code Demo" class="video-card-thumbnail">
@@ -1377,391 +2026,351 @@
                 </div>
                 <div class="video-title">Claude Code: AI-Powered Development</div>
             </a>
-            <a href="https://www.youtube.com/watch?v=aZLr962R6Ag" target="_blank" rel="noopener noreferrer" class="video-card">
+            <a href="https://www.youtube.com/watch?v=OwMu0pyYZBc" target="_blank" rel="noopener noreferrer" class="video-card">
                 <div class="video-card-container">
-                    <img src="https://img.youtube.com/vi/aZLr962R6Ag/maxresdefault.jpg" alt="Model Context Protocol (MCP)" class="video-card-thumbnail">
+                    <img src="https://img.youtube.com/vi/OwMu0pyYZBc/maxresdefault.jpg" alt="Claude Code modernizes a legacy COBOL codebase" class="video-card-thumbnail">
                     <div class="video-play-button">▶</div>
                 </div>
-                <div class="video-title">Model Context Protocol (MCP)</div>
+                <div class="video-title">Claude Code modernizes a legacy COBOL codebase</div>
+            </a>
+            <a href="https://www.anthropic.com/engineering" target="_blank" rel="noopener noreferrer" class="video-card">
+                <div class="video-card-container" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8fd8f2" stroke-width="1.5" style="margin-bottom: 12px;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <div style="color: white; font-weight: 700; font-size: 1rem; text-align: center; margin-bottom: 8px;">Anthropic Engineering Blog</div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: 0.75rem; text-align: center; line-height: 1.4;">Agent architecture, context engineering, tool design & best practices</div>
+                </div>
+                <div class="video-title">Deep Dives: Building Production Agents</div>
             </a>
         </div>
 
-        <div style="text-align: center; margin: 2rem auto 3rem; max-width: 800px;">
-            <p style="font-size: 1.2rem; color: var(--primary-blue); font-weight: 600;">
-                <a href="https://explore.myrocketcareer.com/explore/technology-and-product/accelerated-modernization-rocket-mortgage-origination"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   style="color: var(--primary-blue); text-decoration: none; border-bottom: 2px solid var(--accent-blue); transition: all 0.3s ease;">
-                    See how Rocket transformed their SDLC with Claude Code →
-                </a>
-            </p>
-        </div>
-
-        <div class="use-cases-grid">
-            <div class="use-case-card">
-                <h4>Legacy Modernization</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Decades of insurance-specific code requiring modernization</p>
+        <div class="capability-cards">
+            <!-- Code Modernization -->
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4v8M20 28v8M4 20h8M28 20h8" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M8.93 8.93l5.66 5.66M25.41 25.41l5.66 5.66M8.93 31.07l5.66-5.66M25.41 14.59l5.66-5.66" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="20" cy="20" r="8" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                    </svg>
                 </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Refactor legacy rating engines to microservices while preserving complex business logic</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: 50% faster model deployment (Model 8.9 → remaining 26 states)
+                <h3>Code Modernization</h3>
+                <ul>
+                    <li>Refactor legacy rating engines to microservices</li>
+                    <li>Preserve complex insurance business logic</li>
+                    <li>Auto-generate documentation and API specs</li>
+                    <li>Reduce technical debt systematically</li>
+                    <li>Accelerate Model 8.9 deployment to remaining states</li>
+                </ul>
+                <div class="capability-metric">
+                    <span class="metric-highlight">50%</span> faster model deployment
                 </div>
             </div>
 
-            <div class="use-case-card">
-                <h4>Advanced Segmentation Implementation</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Deploying sophisticated pricing models across 50 states with unique regulations</p>
+            <!-- SDLC Acceleration -->
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4l16 8v16l-16 8-16-8V12l16-8z" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M20 20v16M4 12l16 8 16-8" stroke="#0077b3" stroke-width="1.5"/>
+                        <circle cx="20" cy="20" r="4" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                    </svg>
                 </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Automated code generation for state-specific rating variables, comprehensive testing</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: 12-18 months → 6-9 months per state deployment cycle
-                </div>
-            </div>
-
-            <div class="use-case-card">
-                <h4>API Development & Integration</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Connecting Snapshot telematics, photo estimating, pricing, aggregator partners</p>
-                </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Production-ready APIs with testing, documentation, error handling</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: 40% reduction in integration development time
+                <h3>SDLC Acceleration</h3>
+                <ul>
+                    <li>AI pair programming for 1,000+ developers</li>
+                    <li>Automated test generation across 50 states</li>
+                    <li>Production-ready API development</li>
+                    <li>CI/CD pipeline optimization</li>
+                    <li>Faster onboarding for new team members</li>
+                </ul>
+                <div class="capability-metric">
+                    <span class="metric-highlight">40%</span> reduction in development time
                 </div>
             </div>
 
-            <div class="use-case-card">
-                <h4>Machine Vision Enhancement</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Scaling photo estimating beyond current 2.5x productivity gains</p>
+            <!-- Data Engineering & Analytics -->
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="20" cy="10" rx="14" ry="5" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M6 10v10c0 2.76 6.27 5 14 5s14-2.24 14-5V10" stroke="#0077b3" stroke-width="1.5"/>
+                        <path d="M6 20v10c0 2.76 6.27 5 14 5s14-2.24 14-5V20" stroke="#0077b3" stroke-width="1.5"/>
+                        <ellipse cx="20" cy="20" rx="14" ry="5" stroke="#0077b3" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+                    </svg>
                 </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Build data pipelines, model training workflows, production deployment systems</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: Continue 82% CAGR with expanded damage types and vehicle coverage
-                </div>
-            </div>
-
-            <div class="use-case-card">
-                <h4>Comprehensive Testing</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Validating accuracy across 50 states × 9 coverage types × 5 business targets</p>
-                </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Automated test generation covering edge cases and regulatory requirements</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: 60% increase in test coverage, faster release cycles
-                </div>
-            </div>
-
-            <div class="use-case-card">
-                <h4>Documentation Automation</h4>
-                <div class="challenge">
-                    <div class="label">Challenge</div>
-                    <p>Maintaining technical documentation as systems evolve rapidly</p>
-                </div>
-                <div class="solution">
-                    <div class="label">Solution</div>
-                    <p>Auto-generated API specs, technical guides, onboarding materials</p>
-                </div>
-                <div class="impact-stat">
-                    Impact: 50% reduction in developer onboarding time
+                <h3>Data Engineering & Analytics</h3>
+                <ul>
+                    <li>Build ML pipelines for photo estimating</li>
+                    <li>Deploy segmentation models across states</li>
+                    <li>Optimize Snapshot telematics data processing</li>
+                    <li>Automate ETL for claims analytics</li>
+                    <li>Scale machine vision training workflows</li>
+                </ul>
+                <div class="capability-metric">
+                    <span class="metric-highlight">82%</span> CAGR in AI-powered estimates
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Claude Enterprise Section -->
-    <section id="enterprise" class="section section-white">
-        <h2 class="section-title">Claude Enterprise: AI for Every Progressive Employee</h2>
+        <!-- Case Studies -->
+        <div class="case-studies-section">
+            <h3 class="case-studies-header">Enterprise Success Stories</h3>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-badge">Case Study</div>
+                    <h4>Spotify: Background Coding Agents at Scale</h4>
+                    <p>Spotify built background coding agents using Claude Code to automate large-scale migrations across hundreds of repositories. After evaluating open-source agents (Goose, Aider) and their own proprietary solution, <strong>Claude Code emerged as their top-performing agent</strong>—processing 1,500+ PRs across ~50 migrations with the majority successfully merged into production.</p>
+                    <p class="case-study-relevance"><strong>Insurance relevance:</strong> Imagine automating policy system migrations, rating engine updates, or regulatory compliance changes across Progressive's codebase at this scale.</p>
+                    <blockquote>
+                        "We adopted Claude Code as our top-performing agent for sophisticated prompts and task decomposition."
+                        <cite>— Spotify Engineering</cite>
+                    </blockquote>
+                    <a href="https://engineering.atspotify.com/2025/11/context-engineering-background-coding-agents-part-2" target="_blank" rel="noopener noreferrer" class="case-study-link">Read the full story →</a>
+                </div>
 
-        <p class="intro-text">
-            Beyond specialized agents, Claude Enterprise provides your entire 70,000-person workforce with secure, private AI assistance for daily productivity—from claims adjusters to executives.
-        </p>
+                <div class="case-study-card">
+                    <div class="case-study-badge">Case Study</div>
+                    <h4>Brex: AI-First Spend Management</h4>
+                    <p>Brex rebuilt their entire spend management platform with AI at its core using Claude. Results: <strong>94% compliance rate</strong> (vs. 70% industry standard), <strong>75% of expenses automated</strong>, and <strong>169,000 hours saved monthly</strong> across customers. They fundamentally reimagined workflows "from the ground up with AI at the core."</p>
+                    <p class="case-study-relevance"><strong>Insurance relevance:</strong> Progressive could apply this approach to claims expense management, vendor payments, and policy servicing—achieving similar automation rates and compliance improvements.</p>
+                    <blockquote>
+                        "We've fundamentally reimagined the entire spend management stack to rebuild workflows from the ground up with AI at the core."
+                        <cite>— Tim Foster, Engineering Manager, Brex</cite>
+                    </blockquote>
+                    <a href="https://claude.com/customers/brex" target="_blank" rel="noopener noreferrer" class="case-study-link">Read the full story →</a>
+                </div>
 
-        <div class="department-grid">
-            <div class="department-card">
-                <div class="department-icon">🔍</div>
-                <h4>Claims (18,000 employees)</h4>
-                <ul>
-                    <li>Analyze liability scenarios</li>
-                    <li>Draft customer communications</li>
-                    <li>Research precedent cases</li>
-                    <li>Prepare settlement docs</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📋</div>
-                <h4>Underwriting</h4>
-                <ul>
-                    <li>Research market conditions</li>
-                    <li>Analyze competitive positioning</li>
-                    <li>Prepare risk assessments</li>
-                    <li>Create state filings</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💼</div>
-                <h4>Sales & Agency Support</h4>
-                <ul>
-                    <li>Prepare presentations</li>
-                    <li>Analyze competitive quotes</li>
-                    <li>Draft email responses</li>
-                    <li>Generate training materials</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📢</div>
-                <h4>Marketing</h4>
-                <ul>
-                    <li>Analyze campaign performance</li>
-                    <li>Draft creative briefs</li>
-                    <li>Generate content variations</li>
-                    <li>Optimize messaging</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💰</div>
-                <h4>Finance & Analytics</h4>
-                <ul>
-                    <li>Build financial models</li>
-                    <li>Analyze combined ratio drivers</li>
-                    <li>Prepare investor materials</li>
-                    <li>Create dashboards</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">⚖️</div>
-                <h4>Legal & Compliance</h4>
-                <ul>
-                    <li>Review contracts</li>
-                    <li>Research regulations</li>
-                    <li>Draft policy documents</li>
-                    <li>Analyze legal risks</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">💻</div>
-                <h4>IT & Development</h4>
-                <ul>
-                    <li>Debug code</li>
-                    <li>Review architectures</li>
-                    <li>Generate documentation</li>
-                    <li>Plan migrations</li>
-                </ul>
-            </div>
-
-            <div class="department-card">
-                <div class="department-icon">📊</div>
-                <h4>Executive Leadership</h4>
-                <ul>
-                    <li>Strategic analysis</li>
-                    <li>Competitive intelligence</li>
-                    <li>Board presentations</li>
-                    <li>Investment decisions</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="security-badge">
-            <h3>Enterprise Security Badge</h3>
-            <div class="security-items">
-                <div class="security-item">✓ SOC 2 Type II Certified</div>
-                <div class="security-item">✓ Zero Data Retention</div>
-                <div class="security-item">✓ HIPAA Compliant</div>
-                <div class="security-item">✓ Private Deployment Options</div>
-                <div class="security-item">✓ Role-Based Access Control</div>
-                <div class="security-item">✓ Comprehensive Audit Logs</div>
+                <div class="case-study-card">
+                    <div class="case-study-badge">Case Study</div>
+                    <h4>Rocket: Accelerated SDLC Modernization</h4>
+                    <p>Rocket Mortgage used Claude Code to accelerate their mortgage origination platform modernization. Development teams achieved significant velocity improvements while maintaining code quality standards across their complex financial services infrastructure.</p>
+                    <p class="case-study-relevance"><strong>Insurance relevance:</strong> Modernize Progressive's core policy administration and rating systems with the same accelerated approach used in financial services.</p>
+                    <blockquote>
+                        "Claude Code enabled our teams to move faster while maintaining the quality our platform demands."
+                        <cite>— Rocket Technology Team</cite>
+                    </blockquote>
+                    <a href="https://explore.myrocketcareer.com/explore/technology-and-product/accelerated-modernization-rocket-mortgage-origination" target="_blank" rel="noopener noreferrer" class="case-study-link">Read the full story →</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Custom Agents Section -->
     <section id="custom-agents" class="section section-gray">
-        <h2 class="section-title">Claude-Powered Custom Agents: Autonomous Intelligence for Insurance Operations</h2>
+        <h2 class="section-title">Custom Agents: Level 3 Transformation for Progressive</h2>
 
         <p class="intro-text">
-            Progressive's strategic initiatives require AI that understands insurance nuance, regulatory complexity, and customer needs. Claude custom agents operate autonomously within defined parameters, making intelligent decisions while keeping humans in control for critical judgments.
+            Move beyond productivity gains to business model transformation. Claude-powered custom agents operate autonomously within your systems—making intelligent decisions at scale while keeping humans in control for critical judgments. This is how Progressive becomes an AI-first insurer.
         </p>
 
-        <a href="https://www.youtube.com/watch?v=uhJJgc-0iTQ" target="_blank" rel="noopener noreferrer" class="video-card" style="max-width: 900px; margin: 3rem auto; display: block;">
-            <div class="video-card-container">
-                <img src="https://img.youtube.com/vi/uhJJgc-0iTQ/maxresdefault.jpg" alt="Claude Custom Agents Demo" class="video-card-thumbnail">
-                <div class="video-play-button">▶</div>
-            </div>
-            <div class="video-title">Claude Custom Agents: Autonomous Intelligence</div>
-        </a>
+        <div class="transformation-banner">
+            <div class="transformation-label">Level 3: AI-First Organization</div>
+            <div class="transformation-text">Autonomous agents that don't just assist—they transform how Progressive operates</div>
+        </div>
 
-        <!-- Agent 1 -->
-        <div class="agent-card">
-            <div class="agent-header">
-                <h3 class="agent-title">Claims Processing Intelligence</h3>
-                <span class="status-badge">Production Ready | Complements Photo Estimating</span>
-            </div>
-            <p class="agent-oneliner">AI-powered damage assessment and estimate generation at scale</p>
+        <!-- Agent Cards Grid -->
+        <div class="agent-cards-grid">
+            <!-- Agent 1: Claims -->
+            <div class="agent-card-new">
+                <div class="agent-icon-wrapper">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="12" width="36" height="28" rx="3" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M6 20h36" stroke="#0077b3" stroke-width="1.5"/>
+                        <circle cx="24" cy="30" r="6" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M22 30l2 2 4-4" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 8v4M32 8v4" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Claims Processing Agent</h3>
+                <p class="agent-tagline">Autonomous damage assessment at scale</p>
 
-            <div class="agent-section">
-                <h4>The Challenge</h4>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 0.75rem;">• 82% CAGR in photo estimates creating massive volume</li>
-                    <li style="margin-bottom: 0.75rem;">• Balance claims accuracy with LAE efficiency (Progressive's core priority)</li>
-                    <li style="margin-bottom: 0.75rem;">• Customer expectations for rapid claim resolution</li>
+                <div class="agent-capabilities">
+                    <div class="capability-item">Analyzes photos & generates estimates</div>
+                    <div class="capability-item">Routes complex claims intelligently</div>
+                    <div class="capability-item">Learns from adjuster corrections</div>
+                </div>
+
+                <div class="agent-metrics">
+                    <div class="metric-row">
+                        <span class="metric-value">35%</span>
+                        <span class="metric-desc">faster processing</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-value">3x</span>
+                        <span class="metric-desc">volume capacity</span>
+                    </div>
+                </div>
+
+                <div class="agent-transformation">
+                    <strong>Transformation:</strong> Shifts adjusters from processing to complex judgment calls
+                </div>
+
+                <a href="claims-demo.html" class="agent-demo-btn">
+                    <span>View Live Demo</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Agent 2: Underwriting -->
+            <div class="agent-card-new">
+                <div class="agent-icon-wrapper">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4l18 8v12c0 10-8 18-18 20-10-2-18-10-18-20V12l18-8z" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M18 24l4 4 8-8" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Underwriting & Risk Agent</h3>
+                <p class="agent-tagline">50-state regulatory intelligence</p>
+
+                <div class="agent-capabilities">
+                    <div class="capability-item">Real-time eligibility determination</div>
+                    <div class="capability-item">Optimal bundle recommendations</div>
+                    <div class="capability-item">State-specific compliance navigation</div>
+                </div>
+
+                <div class="agent-metrics">
+                    <div class="metric-row">
+                        <span class="metric-value">+8%</span>
+                        <span class="metric-desc">quote-to-bind</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-value">Instant</span>
+                        <span class="metric-desc">product knowledge</span>
+                    </div>
+                </div>
+
+                <div class="agent-transformation">
+                    <strong>Transformation:</strong> Enables growth in favorable states while managing geographic risk
+                </div>
+
+                <a href="underwriting-demo.html" class="agent-demo-btn">
+                    <span>View Live Demo</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Agent 3: Retention -->
+            <div class="agent-card-new">
+                <div class="agent-icon-wrapper">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="18" stroke="#0077b3" stroke-width="1.5" fill="none"/>
+                        <path d="M24 14v10l6 6" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 24h4M32 24h4M24 12v4" stroke="#0077b3" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Customer Retention Agent</h3>
+                <p class="agent-tagline">Proactive lifetime value optimization</p>
+
+                <div class="agent-capabilities">
+                    <div class="capability-item">Pre-renewal engagement at scale</div>
+                    <div class="capability-item">Personalized coverage reviews</div>
+                    <div class="capability-item">24/7 policy support</div>
+                </div>
+
+                <div class="agent-metrics">
+                    <div class="metric-row">
+                        <span class="metric-value">8-12%</span>
+                        <span class="metric-desc">retention lift</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-value">+18%</span>
+                        <span class="metric-desc">lifetime value</span>
+                    </div>
+                </div>
+
+                <div class="agent-transformation">
+                    <strong>Transformation:</strong> From reactive service to proactive relationship management
+                </div>
+
+                <a href="retention-demo.html" class="agent-demo-btn">
+                    <span>View Live Demo</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="transformation-summary">
+            <h3>The Level 3 Difference</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4v24M4 16h24" stroke="#7ee0ca" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="summary-text">
+                        <strong>Not just faster</strong>
+                        <span>Fundamentally different operating model</span>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#7ee0ca" stroke-width="2" fill="none"/><path d="M12 16l3 3 5-6" stroke="#7ee0ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="summary-text">
+                        <strong>Human in the loop</strong>
+                        <span>Agents handle volume, experts handle judgment</span>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 22l6-8 5 4 9-12" stroke="#7ee0ca" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="summary-text">
+                        <strong>Compounding returns</strong>
+                        <span>Agents learn and improve continuously</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Discussion -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary-blue) 0%, #005a8c 100%); color: white;">
+        <h2 class="section-title" style="color: white;">What Does "Great" Look Like for Progressive?</h2>
+        <p style="text-align: center; font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: -1rem auto 2.5rem; font-weight: 300;">The right metrics depend on Progressive's strategic priorities. Let's define success together.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+            <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); padding: 2rem; border-radius: 5px; border: 1px solid rgba(255,255,255,0.15);">
+                <h4 style="color: #7ee0ca; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Operational Excellence</h4>
+                <ul style="list-style: none; font-size: 0.95rem; line-height: 2;">
+                    <li>Combined ratio improvement?</li>
+                    <li>Claims processing time reduction?</li>
+                    <li>Adjuster productivity gains?</li>
+                    <li>LAE reduction targets?</li>
                 </ul>
             </div>
-
-            <div class="agent-section">
-                <h4>The Solution</h4>
-                <p>Claude agent analyzes vehicle damage photos, generates natural language damage descriptions, creates preliminary repair estimates with parts lists, automatically routes complex claims to specialized adjusters with pre-populated analysis, and learns from adjuster corrections to continuously improve accuracy.</p>
-            </div>
-
-            <div class="business-impact-grid">
-                <div class="impact-item">
-                    <span class="impact-number">35%</span>
-                    <span class="impact-description">Reduction in average claim processing time</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">95%+</span>
-                    <span class="impact-description">Accuracy rates maintained</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">3x</span>
-                    <span class="impact-description">Photo estimate volume handled</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">+45%</span>
-                    <span class="impact-description">Adjuster productivity on complex claims</span>
-                </div>
-            </div>
-
-            <div class="annual-value">
-                <div class="annual-value-number">$180M</div>
-                Annual Value in claims organization efficiency
-            </div>
-        </div>
-
-        <!-- Agent 2 -->
-        <div class="agent-card">
-            <div class="agent-header">
-                <h3 class="agent-title">Underwriting & Geographic Risk Management</h3>
-                <span class="status-badge">High Impact | Addresses Florida Strategy</span>
-            </div>
-            <p class="agent-oneliner">Intelligent eligibility guidance for complex multi-state operations</p>
-
-            <div class="agent-section">
-                <h4>The Challenge</h4>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 0.75rem;">• 115,000 Florida policy non-renewals requiring careful customer communication</li>
-                    <li style="margin-bottom: 0.75rem;">• Complex bundling requirements (auto + home "Robinson households")</li>
-                    <li style="margin-bottom: 0.75rem;">• 50-state regulatory compliance with varying underwriting rules</li>
+            <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); padding: 2rem; border-radius: 5px; border: 1px solid rgba(255,255,255,0.15);">
+                <h4 style="color: #ffa452; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Growth & Retention</h4>
+                <ul style="list-style: none; font-size: 0.95rem; line-height: 2;">
+                    <li>Quote-to-bind conversion lift?</li>
+                    <li>Policy retention improvement?</li>
+                    <li>Cross-sell/bundle rate increase?</li>
+                    <li>Segment migration (Wrights to Robinsons)?</li>
                 </ul>
             </div>
-
-            <div class="agent-section">
-                <h4>The Solution</h4>
-                <p>Claude agent provides real-time eligibility determination, explains underwriting restrictions in plain language, recommends optimal bundles to meet requirements, navigates state-specific regulations, and suggests alternative carriers when Progressive can't offer coverage.</p>
-            </div>
-
-            <div class="business-impact-grid">
-                <div class="impact-item">
-                    <span class="impact-number">+7%</span>
-                    <span class="impact-description">Growth in favorable states</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">+8%</span>
-                    <span class="impact-description">Quote-to-bind conversion improvement</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">-60%</span>
-                    <span class="impact-description">Customer friction reduction</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">Instant</span>
-                    <span class="impact-description">Product knowledge for agents</span>
-                </div>
-            </div>
-
-            <div class="annual-value">
-                <div class="annual-value-number">$95M</div>
-                Annual Value in improved conversion and retention
-            </div>
-        </div>
-
-        <!-- Agent 3 -->
-        <div class="agent-card">
-            <div class="agent-header">
-                <h3 class="agent-title">Customer Retention & Lifetime Value</h3>
-                <span class="status-badge">Addresses Critical Priority | Policy Life Expectancy</span>
-            </div>
-            <p class="agent-oneliner">Proactive engagement to prevent shopping and increase retention</p>
-
-            <div class="agent-section">
-                <h4>The Challenge</h4>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 0.75rem;">• Declining trailing 3/12-month policy life expectancy in direct auto</li>
-                    <li style="margin-bottom: 0.75rem;">• Increased consumer shopping behavior in competitive market</li>
-                    <li style="margin-bottom: 0.75rem;">• Need to grow Robinson (bundled) households as retention anchor</li>
+            <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); padding: 2rem; border-radius: 5px; border: 1px solid rgba(255,255,255,0.15);">
+                <h4 style="color: #c973c9; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Technology & Innovation</h4>
+                <ul style="list-style: none; font-size: 0.95rem; line-height: 2;">
+                    <li>Developer velocity increase?</li>
+                    <li>Time-to-market acceleration?</li>
+                    <li>Code modernization milestones?</li>
+                    <li>Straight-through processing rate?</li>
                 </ul>
             </div>
-
-            <div class="agent-section">
-                <h4>The Solution</h4>
-                <p>Claude agent proactively contacts customers 60/30 days before renewal with personalized coverage reviews, explains Snapshot usage-based discount opportunities, answers policy questions 24/7, identifies coverage gaps, and provides retention offers tailored to customer risk profile.</p>
-            </div>
-
-            <div class="business-impact-grid">
-                <div class="impact-item">
-                    <span class="impact-number">8-12%</span>
-                    <span class="impact-description">Improvement in retention rates</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">+15%</span>
-                    <span class="impact-description">Robinson household formation increase</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">+18%</span>
-                    <span class="impact-description">Customer lifetime value improvement</span>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">24/7</span>
-                    <span class="impact-description">Always-available customer support</span>
-                </div>
-            </div>
-
-            <div class="annual-value">
-                <div class="annual-value-number">$140M</div>
-                Annual Value in reduced churn and acquisition costs
-            </div>
         </div>
 
-        <div class="productivity-calc">
-            <strong>Total Custom Agent Value:</strong><br>
-            $180M + $95M + $140M = <strong>$415M annually</strong>
-        </div>
+        <p style="text-align: center; margin-top: 2.5rem; font-size: 1.1rem; opacity: 0.9; font-style: italic;">What metrics matter most to Progressive's leadership?</p>
     </section>
 
     <!-- Implementation Roadmap -->
@@ -1823,44 +2432,6 @@
                         <li>ROI measurement and executive reporting</li>
                         <li>2027 roadmap development</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" style="background: var(--white); padding: 3rem; border-radius: 8px; margin-top: 3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid rgba(0,119,179,0.1);">
-            <h3 style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">Success Metrics Dashboard</h3>
-            <div class="metrics-dashboard">
-                <div class="metric-card">
-                    <div class="metric-value">-2.5 pts</div>
-                    <div class="metric-label">Combined Ratio</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">-15%</div>
-                    <div class="metric-label">Claims LAE</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+10%</div>
-                    <div class="metric-label">Quote-to-Bind Conversion</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+8%</div>
-                    <div class="metric-label">Policy Life Expectancy</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+40%</div>
-                    <div class="metric-label">Agent Productivity</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+50%</div>
-                    <div class="metric-label">Developer Velocity</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+15 pts</div>
-                    <div class="metric-label">NPS Score</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">-30%</div>
-                    <div class="metric-label">Time-to-Market</div>
                 </div>
             </div>
         </div>
